@@ -34,6 +34,7 @@ import { Separator } from './components/ui/separator';
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 import { ScrollArea } from './components/ui/scroll-area';
+import { useTodayData, useBoardData, useStatusData } from './hooks/use-data';
 
 // ==================== TIPOS ====================
 type TarefaTrello = {
@@ -551,11 +552,26 @@ function Sidebar({ view, setView }: { view: 'dashboard' | 'quadro'; setView: (v:
 
 // ==================== VIEW: DASHBOARD ====================
 function DashboardView({ atividades }: { atividades: AtividadeBot[] }) {
-  const [dataAtual, setDataAtual] = useState<string>('');
+  const [dataAtual, setDataAtual] = useState('');
+  const { data: todayData, toggleTask, updateFocus } = useTodayData();
+  const { data: statusData } = useStatusData();
+  const [editFocus, setEditFocus] = useState(false);
+  const [focusInput, setFocusInput] = useState('');
 
   useEffect(() => {
     setDataAtual(formatarDataPtBR(new Date()));
   }, []);
+
+  const handleFocusSubmit = () => {
+    if (focusInput.trim()) {
+      updateFocus(focusInput.trim());
+      setEditFocus(false);
+      setFocusInput('');
+    }
+  };
+
+  const tarefasRapidas = todayData?.tasks || [];
+  const focoDeHoje = todayData?.focus || '1–2 blocos profundos';
 
   return (
     <>
@@ -628,12 +644,33 @@ function DashboardView({ atividades }: { atividades: AtividadeBot[] }) {
                   <CheckCircle2 className="h-4 w-4" />
                   <span className="text-sm font-medium">Foco de Hoje</span>
                 </div>
-                <CardTitle className="text-lg">1–2 blocos profundos</CardTitle>
+                {editFocus ? (
+                  <div className="flex gap-2">
+                    <Input 
+                      value={focusInput} 
+                      onChange={(e) => setFocusInput(e.target.value)}
+                      placeholder="Digite o foco de hoje..."
+                      className="text-sm"
+                      onKeyDown={(e) => e.key === 'Enter' && handleFocusSubmit()}
+                    />
+                    <Button size="sm" onClick={handleFocusSubmit}>Salvar</Button>
+                  </div>
+                ) : (
+                  <CardTitle 
+                    className="text-lg cursor-pointer hover:text-amber-600 transition-colors" 
+                    onClick={() => { setEditFocus(true); setFocusInput(focoDeHoje); }}
+                  >
+                    {focoDeHoje}
+                  </CardTitle>
+                )}
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-slate-600">Trabalho focado sem interrupções — máxima produtividade</p>
                 <div className="mt-4 flex items-center gap-2">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">Prioridade</span>
+                  {!editFocus && (
+                    <span className="text-xs text-slate-400">Clique para editar</span>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -652,9 +689,17 @@ function DashboardView({ atividades }: { atividades: AtividadeBot[] }) {
             <CardContent>
               <ul className="space-y-3">
                 {tarefasRapidas.map((tarefa) => (
-                  <li key={tarefa.id} className="flex items-center gap-3">
-                    <Circle className={`h-3 w-3 fill-current ${tarefa.cor} text-transparent`} />
-                    <span className="text-sm text-slate-700">{tarefa.texto}</span>
+                  <li key={tarefa.id} className="flex items-center gap-3 cursor-pointer group" onClick={() => toggleTask(tarefa.id)}>
+                    <div className={`h-4 w-4 rounded-full border-2 flex items-center justify-center transition-colors ${
+                      tarefa.done 
+                        ? 'bg-emerald-500 border-emerald-500' 
+                        : 'border-slate-300 group-hover:border-emerald-400'
+                    }`}>
+                      {tarefa.done && <CheckCircle className="h-3 w-3 text-white" />}
+                    </div>
+                    <span className={`text-sm transition-colors ${tarefa.done ? 'text-slate-400 line-through' : 'text-slate-700'}`}>
+                      {tarefa.text}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -698,13 +743,17 @@ function DashboardView({ atividades }: { atividades: AtividadeBot[] }) {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {statusSistema.map((item, index) => (
+                {statusData?.map((item, index) => (
                   <div key={index} className="flex items-center justify-between">
                     <span className="text-sm text-slate-700">{item.nome}</span>
                     <div className="flex items-center gap-2">
                       {item.status === 'online' ? (
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700">
                           <Wifi className="h-3 w-3" />online
+                        </span>
+                      ) : item.status === 'offline' ? (
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-rose-100 text-rose-700">
+                          <AlertCircle className="h-3 w-3" />offline
                         </span>
                       ) : (
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-700">
@@ -769,11 +818,12 @@ function DashboardView({ atividades }: { atividades: AtividadeBot[] }) {
 
 // ==================== VIEW: QUADRO TRELLO ====================
 function QuadroTrelloView() {
-  const [colunas, setColunas] = useState<Coluna[]>(colunasIniciais);
+  const { data: boardData, saveBoard } = useBoardData();
+  const colunas = boardData?.columns || [];
   const [novaColuna, setNovaColuna] = useState(false);
   const [tituloNovaColuna, setTituloNovaColuna] = useState('');
 
-  const handleAddCard = (colunaId: string) => {
+  const handleAddCard = async (colunaId: string) => {
     const novaTarefa: TarefaTrello = {
       id: `t${Date.now()}`,
       titulo: 'Nova tarefa',
@@ -783,21 +833,22 @@ function QuadroTrelloView() {
       anexos: 0
     };
     
-    setColunas(prev => prev.map(col => 
+    const novasColunas = colunas.map(col => 
       col.id === colunaId 
         ? { ...col, tarefas: [...col.tarefas, novaTarefa] }
         : col
-    ));
+    );
+    await saveBoard(novasColunas);
   };
 
-  const handleAddColuna = () => {
+  const handleAddColuna = async () => {
     if (tituloNovaColuna.trim()) {
       const coluna: Coluna = {
         id: `col-${Date.now()}`,
         titulo: tituloNovaColuna,
         tarefas: []
       };
-      setColunas([...colunas, coluna]);
+      await saveBoard([...colunas, coluna]);
       setTituloNovaColuna('');
       setNovaColuna(false);
     }

@@ -1,0 +1,36 @@
+{
+  "focus": "1–2 blocos profundos",
+  "date": "2026-02-17",
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Revisar protótipo do ChefExperience",
+      "done": false,
+      "color": "bg-emerald-500"
+    },
+    {
+      "id": 2,
+      "text": "Responder e-mails pendentes",
+      "done": false,
+      "color": "bg-blue-500"
+    },
+    {
+      "id": 3,
+      "text": "Sincronizar com equipe de design",
+      "done": false,
+      "color": "bg-amber-500"
+    },
+    {
+      "id": 4,
+      "text": "Atualizar documentação do projeto",
+      "done": false,
+      "color": "bg-purple-500"
+    },
+    {
+      "id": 5,
+      "text": "Testar integrações da API",
+      "done": false,
+      "color": "bg-rose-500"
+    }
+  ]
+}

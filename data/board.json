@@ -1,0 +1,107 @@
+{
+  "columns": [
+    {
+      "id": "a-fazer",
+      "titulo": "A Fazer",
+      "tarefas": [
+        {
+          "id": "t1",
+          "titulo": "Revisar protótipo do ChefExperience",
+          "descricao": "Analisar telas principais e fluxo de usuário",
+          "etiquetas": [
+            { "nome": "design", "cor": "bg-purple-500" },
+            { "nome": "alta", "cor": "bg-rose-500" }
+          ],
+          "responsaveis": ["GL"],
+          "comentarios": 3,
+          "anexos": 2,
+          "data": "18/02"
+        },
+        {
+          "id": "t2",
+          "titulo": "Configurar ambiente de staging",
+          "etiquetas": [{ "nome": "devops", "cor": "bg-blue-500" }],
+          "responsaveis": ["GL", "TM"],
+          "comentarios": 0,
+          "anexos": 0
+        },
+        {
+          "id": "t3",
+          "titulo": "Reunião com investidores",
+          "etiquetas": [{ "nome": "reunião", "cor": "bg-amber-500" }],
+          "responsaveis": ["GL"],
+          "comentarios": 5,
+          "anexos": 1,
+          "data": "20/02"
+        }
+      ]
+    },
+    {
+      "id": "em-progresso",
+      "titulo": "Em Progresso",
+      "tarefas": [
+        {
+          "id": "t4",
+          "titulo": "Desenvolver API de autenticação",
+          "descricao": "Implementar JWT e refresh tokens",
+          "etiquetas": [
+            { "nome": "backend", "cor": "bg-emerald-500" },
+            { "nome": "urgente", "cor": "bg-rose-500" }
+          ],
+          "responsaveis": ["GL"],
+          "comentarios": 8,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t5",
+          "titulo": "Criar componentes de UI",
+          "etiquetas": [{ "nome": "frontend", "cor": "bg-cyan-500" }],
+          "responsaveis": ["TM"],
+          "comentarios": 2,
+          "anexos": 4
+        }
+      ]
+    },
+    {
+      "id": "revisao",
+      "titulo": "Em Revisão",
+      "tarefas": [
+        {
+          "id": "t6",
+          "titulo": "Documentação da API",
+          "etiquetas": [{ "nome": "docs", "cor": "bg-slate-500" }],
+          "responsaveis": ["GL"],
+          "comentarios": 1,
+          "anexos": 3,
+          "data": "16/02"
+        }
+      ]
+    },
+    {
+      "id": "concluido",
+      "titulo": "Concluído",
+      "tarefas": [
+        {
+          "id": "t7",
+          "titulo": "Setup inicial do projeto",
+          "etiquetas": [{ "nome": "setup", "cor": "bg-indigo-500" }],
+          "responsaveis": ["GL"],
+          "comentarios": 0,
+          "anexos": 0
+        },
+        {
+          "id": "t8",
+          "titulo": "Definir arquitetura",
+          "etiquetas": [
+            { "nome": "arquitetura", "cor": "bg-violet-500" },
+            { "nome": "importante", "cor": "bg-amber-500" }
+          ],
+          "responsaveis": ["GL", "TM"],
+          "comentarios": 4,
+          "anexos": 2
+        }
+      ]
+    }
+  ]
+}
