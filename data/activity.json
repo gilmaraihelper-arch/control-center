@@ -1,0 +1,222 @@
+[
+  {
+    "id": 23,
+    "tipo": "deploy",
+    "titulo": "PostgreSQL conectado!",
+    "descricao": "ChefExperience com banco de dados real. Cadastro e login funcionando.",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "2h",
+    "data": "2026-02-18T02:28:32.807Z",
+    "status": "concluido"
+  },
+  {
+    "id": 22,
+    "tipo": "fix",
+    "titulo": "Fluxo de cadastro corrigido",
+    "descricao": "Removida validação bloqueando submit + login automático",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "10 min",
+    "data": "2026-02-18T00:58:52.326Z",
+    "status": "concluido"
+  },
+  {
+    "id": 21,
+    "tipo": "fix",
+    "titulo": "Correção deploy Vercel",
+    "descricao": "Feito fix no build para funcionar com PostgreSQL",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "5 min",
+    "data": "2026-02-17T20:59:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 20,
+    "tipo": "deploy",
+    "titulo": "ChefExperience + PostgreSQL no ar",
+    "descricao": "Deploy Vercel com banco Prisma Postgres",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "45 min",
+    "data": "2026-02-17T20:45:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 19,
+    "tipo": "infra",
+    "titulo": "Prisma Postgres criado",
+    "descricao": "Banco chefexperience-db criado no Vercel",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "5 min",
+    "data": "2026-02-17T20:25:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 18,
+    "tipo": "deploy",
+    "titulo": "ChefExperience deployado na Vercel",
+    "descricao": "App funcionando em modo demo: https://chefexperience.vercel.app",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "30 min",
+    "data": "2026-02-17T19:57:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 16,
+    "tipo": "dev",
+    "titulo": "Página Perfil Profissional criada",
+    "descricao": "Nova pagina /perfil/profissional com form para editar dados, foto, estatisticas",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "15 min",
+    "data": "2026-02-17T16:35:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 17,
+    "tipo": "dev",
+    "titulo": "Imagens reais na Home",
+    "descricao": "Trocados emojis por imagens reais de casamentos, chefs, buffets",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "10 min",
+    "data": "2026-02-17T16:45:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 15,
+    "tipo": "dev",
+    "titulo": "Teste E2E navegador",
+    "descricao": "Login funcionou, Dashboard Cliente carregando corretamente com mock data",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "10 min",
+    "data": "2026-02-17T16:28:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 12,
+    "tipo": "dev",
+    "titulo": "Dashboard Cliente completa",
+    "descricao": "Stats, favoritos, calendário, notificações em tempo real, countdown de eventos",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "30 min",
+    "data": "2026-02-17T15:55:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 13,
+    "tipo": "dev",
+    "titulo": "Dashboard Profissional completa",
+    "descricao": "Stats detalhadas, gráfico de desempenho, match score, filtros avançados",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "30 min",
+    "data": "2026-02-17T15:58:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 14,
+    "tipo": "qa",
+    "titulo": "Build ChefExperience 100%",
+    "descricao": "Todas as páginas compilando corretamente, sem erros",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "5 min",
+    "data": "2026-02-17T16:00:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 1,
+    "tipo": "tarefa",
+    "titulo": "Teste geral ChefExperience concluído",
+    "descricao": "18 testes passaram, 2 falharam. Sistema 90% funcional.",
+    "projeto": "ChefExperience",
+    "autor": "Carol (sub-agent)",
+    "tempo": "3 min",
+    "data": "2026-02-17T13:31:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 2,
+    "tipo": "pesquisa",
+    "titulo": "Diagnóstico de timeout concluído",
+    "descricao": "Problema identificado: timeout externo ao OpenClaw (cliente HTTP/proxy).",
+    "projeto": "OpenClaw",
+    "autor": "Sub-agent",
+    "tempo": "7 min",
+    "data": "2026-02-17T13:37:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 3,
+    "tipo": "pesquisa",
+    "titulo": "Pesquisa multi-agent systems concluída",
+    "descricao": "Arquitetura Flow+Crew recomendada. Documento de 21KB criado.",
+    "projeto": "OpenClaw",
+    "autor": "Carol (sub-agent)",
+    "tempo": "5 min",
+    "data": "2026-02-17T13:12:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 4,
+    "tipo": "dev",
+    "titulo": "Redesign frontend Control Center",
+    "descricao": "Interface moderna dark theme (slate/violet/cyan) - Concluído",
+    "projeto": "Control Center",
+    "autor": "Liliana",
+    "tempo": "5 min",
+    "data": "2026-02-17T14:30:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 5,
+    "tipo": "dev",
+    "titulo": "Contato Direto implementado",
+    "descricao": "Cliente e chef fecham direto, sem pagamentos na plataforma",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "10 min",
+    "data": "2026-02-17T14:50:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 6,
+    "tipo": "dev",
+    "titulo": "Avaliação Mútua implementada",
+    "descricao": "Chef pode avaliar cliente após evento - rating bidirecional",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "10 min",
+    "data": "2026-02-17T14:55:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 7,
+    "tipo": "config",
+    "titulo": "LLM Minimax como primary",
+    "descricao": "Trocado de Kimi K2.5 para Minimax M2.5 no gateway OpenClaw",
+    "projeto": "OpenClaw",
+    "autor": "Liliana",
+    "tempo": "2 min",
+    "data": "2026-02-17T14:25:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 8,
+    "tipo": "config",
+    "titulo": "Cronjob Soul + ChefExperience",
+    "descricao": "A cada 15min verifica progresso e sugere próximas ações",
+    "projeto": "OpenClaw",
+    "autor": "Liliana",
+    "tempo": "1 min",
+    "data": "2026-02-17T14:25:00Z",
+    "status": "concluido"
+  }
+]

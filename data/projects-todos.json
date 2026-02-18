@@ -1,0 +1,219 @@
+{
+  "chefexperience": {
+    "progresso": 100,
+    "tarefas": [
+      {
+        "id": "cx-1",
+        "titulo": "Cadastro Cliente/Profissional",
+        "status": "done"
+      },
+      {
+        "id": "cx-2",
+        "titulo": "Login JWT",
+        "status": "done"
+      },
+      {
+        "id": "cx-3",
+        "titulo": "Fluxo Eventos e Propostas",
+        "status": "done"
+      },
+      {
+        "id": "cx-4",
+        "titulo": "Perfil do Chef",
+        "status": "done"
+      },
+      {
+        "id": "cx-5",
+        "titulo": "Busca e Filtros",
+        "status": "done"
+      },
+      {
+        "id": "cx-6",
+        "titulo": "Termos LGPD",
+        "status": "done"
+      },
+      {
+        "id": "cx-7",
+        "titulo": "Contato Direto (aceitar proposta)",
+        "status": "done",
+        "nota": "Cliente e chef fecham direto, sem pagamentos na plataforma"
+      },
+      {
+        "id": "cx-8",
+        "titulo": "Avalia\u00e7\u00e3o M\u00fatua (cliente \u2194 chef)",
+        "status": "done",
+        "nota": "Chef pode avaliar cliente ap\u00f3s evento"
+      },
+      {
+        "id": "cx-9",
+        "titulo": "Nota do cliente vis\u00edvel para chefs",
+        "status": "done",
+        "nota": "Chef v\u00ea rating do cliente antes de enviar proposta"
+      },
+      {
+        "id": "cx-10",
+        "titulo": "Stripe/Pagamentos",
+        "status": "done",
+        "nota": "REMOVIDO - modelo de conex\u00e3o direta"
+      },
+      {
+        "id": "cx-11",
+        "titulo": "Criar Evento Wizard 6 passos",
+        "status": "done",
+        "nota": "Completo: 12 tipos, 18 estilos culin\u00e1rios, 10 servi\u00e7os adicionais, match modal"
+      },
+      {
+        "id": "cx-12",
+        "titulo": "12 Tipos de Evento",
+        "status": "done",
+        "nota": "Casamento, Anivers\u00e1rio, Corporativo, Formatura, etc"
+      },
+      {
+        "id": "cx-13",
+        "titulo": "18 Estilos Culin\u00e1rios",
+        "status": "done",
+        "nota": "Brasileira, Italiana, Japonesa, Mexicana, etc"
+      },
+      {
+        "id": "cx-14",
+        "titulo": "10 Servi\u00e7os Adicionais",
+        "status": "done",
+        "nota": "Gar\u00e7om, Bebidas, Decora\u00e7\u00e3o, Som, Fot\u00f3grafo, etc"
+      },
+      {
+        "id": "cx-15",
+        "titulo": "Match Modal com Chefs",
+        "status": "done",
+        "nota": "Modal com 5 chefs mockados e match score"
+      },
+      {
+        "id": "cx-16",
+        "titulo": "Dashboard Cliente Completa",
+        "status": "done",
+        "nota": "Stats, favoritos, calend\u00e1rio, notifica\u00e7\u00f5es, countdown"
+      },
+      {
+        "id": "cx-17",
+        "titulo": "Dashboard Profissional Completa",
+        "status": "done",
+        "nota": "Stats detalhadas, gr\u00e1fico, match score, filtros avan\u00e7ados"
+      },
+      {
+        "id": "cx-18",
+        "titulo": "P\u00e1gina Sobre",
+        "status": "done"
+      },
+      {
+        "id": "cx-19",
+        "titulo": "P\u00e1gina FAQ",
+        "status": "done",
+        "nota": "13 perguntas com busca e filtro"
+      },
+      {
+        "id": "cx-20",
+        "titulo": "P\u00e1gina Planos",
+        "status": "done",
+        "nota": "Planos clientes e chefs"
+      },
+      {
+        "id": "cx-21",
+        "titulo": "P\u00e1gina Contato",
+        "status": "done",
+        "nota": "Formul\u00e1rio + informa\u00e7\u00f5es"
+      }
+    ]
+  },
+  "controlcenter": {
+    "progresso": 95,
+    "tarefas": [
+      {
+        "id": "cc-1",
+        "titulo": "Dashboard com cards",
+        "status": "done"
+      },
+      {
+        "id": "cc-2",
+        "titulo": "Kanban boards",
+        "status": "done"
+      },
+      {
+        "id": "cc-3",
+        "titulo": "Calend\u00e1rio",
+        "status": "done"
+      },
+      {
+        "id": "cc-4",
+        "titulo": "Foco do Dia",
+        "status": "done"
+      },
+      {
+        "id": "cc-5",
+        "titulo": "Tarefas R\u00e1pidas",
+        "status": "done"
+      },
+      {
+        "id": "cc-6",
+        "titulo": "Status dos servi\u00e7os",
+        "status": "done"
+      },
+      {
+        "id": "cc-7",
+        "titulo": "Redesign frontend moderno (dark theme)",
+        "status": "done",
+        "nota": "Tema escuro slate/violet/cyan, novo layout"
+      },
+      {
+        "id": "cc-8",
+        "titulo": "Relat\u00f3rios de progresso",
+        "status": "todo"
+      }
+    ]
+  },
+  "openclaw": {
+    "progresso": 98,
+    "tarefas": [
+      {
+        "id": "oc-1",
+        "titulo": "Setup ComfyUI",
+        "status": "done"
+      },
+      {
+        "id": "oc-2",
+        "titulo": "Modelos SDXL",
+        "status": "done"
+      },
+      {
+        "id": "oc-3",
+        "titulo": "Scripts start/stop",
+        "status": "done"
+      },
+      {
+        "id": "oc-4",
+        "titulo": "Configurar agents (Liliana, Carol)",
+        "status": "done"
+      },
+      {
+        "id": "oc-5",
+        "titulo": "Pesquisa multi-agent best practices",
+        "status": "done"
+      },
+      {
+        "id": "oc-6",
+        "titulo": "Diagn\u00f3stico timeout agents",
+        "status": "done"
+      },
+      {
+        "id": "oc-7",
+        "titulo": "LLM Minimax como primary",
+        "status": "done",
+        "nota": "Trocado de Kimi K2.5 para Minimax M2.5"
+      },
+      {
+        "id": "oc-8",
+        "titulo": "Cronjob Soul + ChefExperience",
+        "status": "done",
+        "nota": "A cada 15min verifica progresso"
+      }
+    ]
+  }
+}

@@ -5,101 +5,288 @@
       "titulo": "A Fazer",
       "tarefas": [
         {
-          "id": "t1",
-          "titulo": "Revisar protótipo do ChefExperience",
-          "descricao": "Analisar telas principais e fluxo de usuário",
+          "id": "t7",
+          "titulo": "Relatórios de progresso (Control Center)",
+          "descricao": "Adicionar gráficos e métricas aos dashboards",
           "etiquetas": [
-            { "nome": "design", "cor": "bg-purple-500" },
-            { "nome": "alta", "cor": "bg-rose-500" }
+            {
+              "nome": "frontend",
+              "cor": "bg-cyan-500"
+            }
           ],
-          "responsaveis": ["GL"],
-          "comentarios": 3,
-          "anexos": 2,
-          "data": "18/02"
-        },
-        {
-          "id": "t2",
-          "titulo": "Configurar ambiente de staging",
-          "etiquetas": [{ "nome": "devops", "cor": "bg-blue-500" }],
-          "responsaveis": ["GL", "TM"],
+          "responsaveis": [
+            "GL"
+          ],
           "comentarios": 0,
           "anexos": 0
-        },
-        {
-          "id": "t3",
-          "titulo": "Reunião com investidores",
-          "etiquetas": [{ "nome": "reunião", "cor": "bg-amber-500" }],
-          "responsaveis": ["GL"],
-          "comentarios": 5,
-          "anexos": 1,
-          "data": "20/02"
         }
       ]
     },
     {
       "id": "em-progresso",
       "titulo": "Em Progresso",
-      "tarefas": [
-        {
-          "id": "t4",
-          "titulo": "Desenvolver API de autenticação",
-          "descricao": "Implementar JWT e refresh tokens",
-          "etiquetas": [
-            { "nome": "backend", "cor": "bg-emerald-500" },
-            { "nome": "urgente", "cor": "bg-rose-500" }
-          ],
-          "responsaveis": ["GL"],
-          "comentarios": 8,
-          "anexos": 0,
-          "data": "17/02"
-        },
-        {
-          "id": "t5",
-          "titulo": "Criar componentes de UI",
-          "etiquetas": [{ "nome": "frontend", "cor": "bg-cyan-500" }],
-          "responsaveis": ["TM"],
-          "comentarios": 2,
-          "anexos": 4
-        }
-      ]
+      "tarefas": []
     },
     {
       "id": "revisao",
       "titulo": "Em Revisão",
-      "tarefas": [
-        {
-          "id": "t6",
-          "titulo": "Documentação da API",
-          "etiquetas": [{ "nome": "docs", "cor": "bg-slate-500" }],
-          "responsaveis": ["GL"],
-          "comentarios": 1,
-          "anexos": 3,
-          "data": "16/02"
-        }
-      ]
+      "tarefas": []
     },
     {
       "id": "concluido",
       "titulo": "Concluído",
       "tarefas": [
         {
-          "id": "t7",
-          "titulo": "Setup inicial do projeto",
-          "etiquetas": [{ "nome": "setup", "cor": "bg-indigo-500" }],
-          "responsaveis": ["GL"],
+          "id": "t14",
+          "titulo": "PostgreSQL ChefExperience",
+          "descricao": "Banco de dados real conectado. Cadastro e login persistindo no PostgreSQL.",
+          "etiquetas": [
+            {
+              "nome": "backend",
+              "cor": "bg-emerald-500"
+            },
+            {
+              "nome": "infra",
+              "cor": "bg-violet-500"
+            }
+          ],
+          "responsaveis": [
+            "GL"
+          ],
           "comentarios": 0,
-          "anexos": 0
+          "anexos": 0,
+          "data": "17/02"
         },
         {
-          "id": "t8",
-          "titulo": "Definir arquitetura",
+          "id": "t1",
+          "titulo": "Corrigir checkbox LGPD no ChefExperience",
+          "descricao": "Checkbox obrigatório adicionado nos formulários de cadastro",
           "etiquetas": [
-            { "nome": "arquitetura", "cor": "bg-violet-500" },
-            { "nome": "importante", "cor": "bg-amber-500" }
+            {
+              "nome": "bug",
+              "cor": "bg-rose-500"
+            },
+            {
+              "nome": "alta",
+              "cor": "bg-amber-500"
+            }
           ],
-          "responsaveis": ["GL", "TM"],
-          "comentarios": 4,
-          "anexos": 2
+          "responsaveis": [
+            "GL"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t2",
+          "titulo": "Integração Stripe (ChefExperience)",
+          "descricao": "REMOVIDO - Modelo de conexão direta, sem pagamentos na plataforma",
+          "etiquetas": [
+            {
+              "nome": "backend",
+              "cor": "bg-emerald-500"
+            },
+            {
+              "nome": "baixa",
+              "cor": "bg-slate-500"
+            }
+          ],
+          "responsaveis": [
+            "GL"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t3",
+          "titulo": "Redesenhar frontend Control Center",
+          "descricao": "Interface moderna dark theme (slate/violet/cyan) - Concluído",
+          "etiquetas": [
+            {
+              "nome": "frontend",
+              "cor": "bg-cyan-500"
+            }
+          ],
+          "responsaveis": [
+            "GL"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t9",
+          "titulo": "Contato Direto (ChefExperience)",
+          "descricao": "Cliente e chef fecham direto, sem pagamentos na plataforma",
+          "etiquetas": [
+            {
+              "nome": "feature",
+              "cor": "bg-emerald-500"
+            }
+          ],
+          "responsaveis": [
+            "GL"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t10",
+          "titulo": "Avaliação Mútua (ChefExperience)",
+          "descricao": "Chef pode avaliar cliente após evento - rating bidirecional",
+          "etiquetas": [
+            {
+              "nome": "feature",
+              "cor": "bg-emerald-500"
+            }
+          ],
+          "responsaveis": [
+            "GL"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t11",
+          "titulo": "LLM Minimax como primary",
+          "descricao": "Trocado de Kimi K2.5 para Minimax M2.5 no gateway",
+          "etiquetas": [
+            {
+              "nome": "config",
+              "cor": "bg-blue-500"
+            }
+          ],
+          "responsaveis": [
+            "GL"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t12",
+          "titulo": "Cronjob Soul + ChefExperience",
+          "descricao": "A cada 15min verifica progresso e sugere próximas ações",
+          "etiquetas": [
+            {
+              "nome": "automation",
+              "cor": "bg-violet-500"
+            }
+          ],
+          "responsaveis": [
+            "Liliana"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t13",
+          "titulo": "Wizard Criar Evento (6 passos)",
+          "descricao": "Novo fluxo wizard com seletor visual, slider de orçamento, resumo",
+          "etiquetas": [
+            {
+              "nome": "feature",
+              "cor": "bg-emerald-500"
+            },
+            {
+              "nome": "ux",
+              "cor": "bg-amber-500"
+            }
+          ],
+          "responsaveis": [
+            "Liliana"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t14",
+          "titulo": "Páginas Sobre, FAQ, Planos, Contato",
+          "descricao": "4 páginas estáticas criadas para o site",
+          "etiquetas": [
+            {
+              "nome": "frontend",
+              "cor": "bg-cyan-500"
+            }
+          ],
+          "responsaveis": [
+            "Liliana"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t15",
+          "titulo": "Teste E2E completo ChefExperience",
+          "descricao": "Fluxo 100%: criar evento → proposta → aceitar → contato → avaliar",
+          "etiquetas": [
+            {
+              "nome": "qa",
+              "cor": "bg-purple-500"
+            }
+          ],
+          "responsaveis": [
+            "Liliana"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "17/02"
+        },
+        {
+          "id": "t5",
+          "titulo": "Pesquisa multi-agent systems",
+          "descricao": "Arquitetura Flow+Crew recomendada",
+          "etiquetas": [
+            {
+              "nome": "pesquisa",
+              "cor": "bg-indigo-500"
+            }
+          ],
+          "responsaveis": [
+            "Carol"
+          ],
+          "comentarios": 0,
+          "anexos": 1
+        },
+        {
+          "id": "t6",
+          "titulo": "Diagnóstico timeout agents",
+          "descricao": "Problema identificado: timeout externo",
+          "etiquetas": [
+            {
+              "nome": "devops",
+              "cor": "bg-blue-500"
+            }
+          ],
+          "responsaveis": [
+            "GL"
+          ],
+          "comentarios": 0,
+          "anexos": 1
+        },
+        {
+          "id": "t4",
+          "titulo": "Teste geral ChefExperience",
+          "descricao": "18/20 testes passaram (90% sucesso)",
+          "etiquetas": [
+            {
+              "nome": "qa",
+              "cor": "bg-purple-500"
+            }
+          ],
+          "responsaveis": [
+            "Carol"
+          ],
+          "comentarios": 1,
+          "anexos": 1,
+          "data": "17/02"
         }
       ]
     }

@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "titulo": "ChefExperience MVP Completo",
+      "data": "2026-02-17",
+      "tipo": "milestone",
+      "descricao": "Todas as features implementadas: Wizard, Dashboards, Páginas",
+      "projeto": "ChefExperience",
+      "concluido": true
+    },
+    {
+      "id": 2,
+      "titulo": "Relatórios Control Center",
+      "data": "2026-02-18",
+      "tipo": "tarefa",
+      "descricao": "Adicionar gráficos e métricas aos dashboards",
+      "projeto": "Control Center",
+      "concluido": false
+    }
+  ]
+}
