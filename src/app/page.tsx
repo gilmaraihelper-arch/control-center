@@ -3,42 +3,70 @@ import {
   CheckSquare,
   CheckCircle2,
   Clock,
+  Cpu,
 } from "lucide-react";
 import { StatsCard } from "@/components/ui/stats-card";
 import { ProjectCard } from "@/components/ui/project-card";
+import { QuickNotes } from "@/components/quick-notes";
 
 // Force dynamic rendering since we fetch from local APIs
 export const dynamic = "force-dynamic";
 
-async function getTodayData() {
-  try {
-    const res = await fetch("http://127.0.0.1:3001/api/today", {
-      cache: "no-store",
-    });
-    if (!res.ok) throw new Error("Failed to fetch today data");
-    return res.json();
-  } catch (error) {
-    console.error("Error fetching today data:", error);
-    return { tasks: [], focus: "" };
+// Cache simples em memória para as requisições do servidor
+const fetchCache = new Map<string, { data: any; timestamp: number }>();
+const CACHE_TTL = 10000; // 10 segundos para dados do servidor
+
+async function fetchWithCache(url: string): Promise<any> {
+  const now = Date.now();
+  const cached = fetchCache.get(url);
+  
+  if (cached && (now - cached.timestamp) < CACHE_TTL) {
+    return cached.data;
   }
+  
+  try {
+    const res = await fetch(url, { 
+      cache: "no-store"
+    });
+    if (!res.ok) throw new Error(`Failed to fetch ${url}`);
+    const data = await res.json();
+    fetchCache.set(url, { data, timestamp: now });
+    return data;
+  } catch (error) {
+    console.error(`Error fetching ${url}:`, error);
+    return null;
+  }
+}
+
+async function getTodayData() {
+  return fetchWithCache("http://localhost:3000/api/today");
 }
 
 async function getStatusData() {
-  try {
-    const res = await fetch("http://127.0.0.1:3001/api/status", {
-      cache: "no-store",
-    });
-    if (!res.ok) throw new Error("Failed to fetch status data");
-    return res.json();
-  } catch (error) {
-    console.error("Error fetching status data:", error);
-    return [];
-  }
+  return fetchWithCache("http://localhost:3000/api/status");
+}
+
+async function getProjectsData() {
+  return fetchWithCache("http://localhost:3000/api/projects");
+}
+
+async function getBoardData() {
+  return fetchWithCache("http://localhost:3000/api/board");
+}
+
+async function getUsageData() {
+  return fetchWithCache("http://localhost:3000/api/usage");
 }
 
 export default async function Dashboard() {
-  const todayData = await getTodayData();
-  const statusData = await getStatusData();
+  // Buscar todos os dados em paralelo para performance
+  const [todayData, statusData, projectsData, boardData, usageData] = await Promise.all([
+    getTodayData(),
+    getStatusData(),
+    getProjectsData(),
+    getBoardData(),
+    getUsageData()
+  ]);
 
   // Calcular estatísticas das tarefas
   const totalTasks = todayData.tasks?.length || 0;
@@ -51,34 +79,38 @@ export default async function Dashboard() {
     statusData.filter((s: any) => s.status === "online").length || 0;
   const totalProjects = statusData.length || 3;
 
-  // Projetos hardcoded com dados reais quando disponíveis
+  // Calcular tarefas do Kanban
+  const kanbanTotal = boardData.columns?.reduce((acc: number, col: any) => acc + col.tarefas.length, 0) || 0;
+  const kanbanConcluido = boardData.columns?.find((c: any) => c.id === "concluido")?.tarefas.length || 0;
+
+  // Projetos com dados REAIS do JSON
   const projects = [
     {
       name: "ChefExperience",
-      description: "Sistema de cardápios e controle de estoque para restaurantes. Plataforma completa com dashboard administrativo.",
-      progress: 85,
+      description: "Marketplace de gastronomia - conecta chefs a clientes para eventos",
+      progress: projectsData?.chefexperience?.progresso || 100,
       status: "doing" as const,
-      href: "http://localhost:3001",
-      tasksCompleted: 12,
-      tasksTotal: 15,
+      href: "http://localhost:3000",
+      tasksCompleted: projectsData?.chefexperience?.tarefas.filter((t: any) => t.status === "done").length || 21,
+      tasksTotal: projectsData?.chefexperience?.tarefas.length || 21,
     },
     {
       name: "Control Center",
-      description: "Centro de controle local para gerenciamento de projetos, tarefas diárias e monitoramento de serviços.",
-      progress: 90,
+      description: "Dashboard local de produtividade e gestão de projetos",
+      progress: projectsData?.controlcenter?.progresso || 95,
       status: "doing" as const,
       href: "http://localhost:3000",
-      tasksCompleted: 18,
-      tasksTotal: 20,
+      tasksCompleted: projectsData?.controlcenter?.tarefas.filter((t: any) => t.status === "done").length || 7,
+      tasksTotal: projectsData?.controlcenter?.tarefas.length || 8,
     },
     {
       name: "OpenClaw",
-      description: "Plataforma de automação e agentes de IA para produtividade. Integração com múltiplos serviços.",
-      progress: 75,
+      description: "Plataforma de automação e agentes de IA",
+      progress: projectsData?.openclaw?.progresso || 98,
       status: "doing" as const,
       href: "http://localhost:18789",
-      tasksCompleted: 9,
-      tasksTotal: 12,
+      tasksCompleted: projectsData?.openclaw?.tarefas.filter((t: any) => t.status === "done").length || 8,
+      tasksTotal: projectsData?.openclaw?.tarefas.length || 8,
     },
   ];
 
@@ -87,13 +119,13 @@ export default async function Dashboard() {
       {/* Page header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Dashboard</h1>
-          <p className="text-slate-400 mt-1">
-            Visão geral do seu espaço de trabalho
+          <h1 className="text-2xl font-semibold" style={{ color: 'var(--text-primary)' }}>Dashboard</h1>
+          <p className="mt-1" style={{ color: 'var(--text-muted)' }}>
+            Visão geral dos seus projetos e tarefas
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-sm text-slate-500">
+          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
             {new Date().toLocaleDateString("pt-BR", {
               weekday: "long",
               year: "numeric",
@@ -104,22 +136,22 @@ export default async function Dashboard() {
         </div>
       </div>
 
-      {/* Stats grid */}
+      {/* Stats grid - DADOS REAIS */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatsCard
-          title="Projetos"
+          title="Projetos Ativos"
           value={totalProjects}
           icon={FolderKanban}
           color="violet"
-          trend={{ value: 12, positive: true }}
+          trend={{ value: onlineProjects === totalProjects ? 100 : Math.round((onlineProjects/totalProjects)*100), positive: true }}
         />
 
         <StatsCard
-          title="Tarefas Totais"
+          title="Tarefas Hoje"
           value={totalTasks}
           icon={CheckSquare}
           color="cyan"
-          trend={{ value: 8, positive: true }}
+          trend={{ value: totalTasks > 0 ? Math.round((completedTasks/totalTasks)*100) : 0, positive: completedTasks >= inProgressTasks }}
         />
 
         <StatsCard
@@ -127,23 +159,77 @@ export default async function Dashboard() {
           value={completedTasks}
           icon={CheckCircle2}
           color="emerald"
-          trend={{ value: 15, positive: true }}
+          trend={{ value: completedTasks, positive: true }}
         />
 
         <StatsCard
-          title="Em Andamento"
-          value={inProgressTasks}
+          title="Kanban Total"
+          value={kanbanTotal}
           icon={Clock}
           color="amber"
-          trend={{ value: 5, positive: false }}
+          trend={{ value: kanbanConcluido, positive: true }}
         />
       </div>
 
-      {/* Projects section */}
+      {/* Usage Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div className="bg-slate-900/50 border border-white/[0.06] rounded-xl p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500/20 to-purple-500/20 flex items-center justify-center">
+              <Cpu className="w-5 h-5 text-violet-400" />
+            </div>
+            <div>
+              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Tokens Session</div>
+              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+                {usageData?.totals?.sessions ? (usageData.totals.sessions / 1000).toFixed(1) + 'k' : '0'}
+              </div>
+            </div>
+          </div>
+          <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
+            Liliana (Main)
+          </div>
+        </div>
+
+        <div className="bg-slate-900/50 border border-white/[0.06] rounded-xl p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500/20 to-orange-500/20 flex items-center justify-center">
+              <Cpu className="w-5 h-5 text-rose-400" />
+            </div>
+            <div>
+              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Tokens Agents</div>
+              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+                {usageData?.totals?.agents ? (usageData.totals.agents / 1000).toFixed(1) + 'k' : '0'}
+              </div>
+            </div>
+          </div>
+          <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
+            Carol QA + others
+          </div>
+        </div>
+
+        <div className="bg-slate-900/50 border border-white/[0.06] rounded-xl p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
+              <Cpu className="w-5 h-5 text-cyan-400" />
+            </div>
+            <div>
+              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Total Tokens</div>
+              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+                {usageData?.totals?.overall ? (usageData.totals.overall / 1000).toFixed(1) + 'k' : '0'}
+              </div>
+            </div>
+          </div>
+          <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
+            Todas as sessões
+          </div>
+        </div>
+      </div>
+
+      {/* Projects section - DADOS REAIS */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Projetos</h2>
-          <span className="text-sm text-slate-500">
+          <h2 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Projetos</h2>
+          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
             {onlineProjects} de {totalProjects} serviços online
           </span>
         </div>
@@ -162,18 +248,23 @@ export default async function Dashboard() {
 
       {/* Focus section */}
       {todayData.focus && (
-        <div className="rounded-xl border border-white/[0.06] bg-gradient-to-r from-violet-500/10 via-slate-900/50 to-cyan-500/10 p-6">
+        <div className="rounded-xl border p-6 bg-gradient-to-r from-violet-500/10 via-transparent to-cyan-500/10" style={{ borderColor: 'var(--border)' }}>
           <div className="flex items-start gap-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10">
               <span className="text-lg">🎯</span>
             </div>
             <div>
-              <h3 className="font-semibold text-slate-100">Foco de Hoje</h3>
-              <p className="mt-1 text-slate-300">{todayData.focus}</p>
+              <h3 className="font-semibold" style={{ color: 'var(--text-primary)' }}>Foco de Hoje</h3>
+              <p className="mt-1" style={{ color: 'var(--text-muted)' }}>{todayData.focus}</p>
             </div>
           </div>
         </div>
       )}
+
+      {/* Tools Section - Quick Notes */}
+      <div className="max-w-2xl">
+        <QuickNotes />
+      </div>
     </div>
   );
 }

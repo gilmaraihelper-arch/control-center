@@ -1,36 +1,49 @@
 {
-  "focus": "Testes E2E + Correções",
-  "date": "2026-02-17",
+  "focus": "Surpresa das 9h - ChefExperience completo",
+  "date": "2026-02-20",
+  "mission": "An autonomous organization of AI agents that does work for me and produces value 24/7.",
   "tasks": [
     {
       "id": 1,
-      "text": "Testar login e dashboards",
+      "text": "Deploy ChefExperience com novas features",
       "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 2,
-      "text": "Corrigir Select vazio",
+      "text": "Sistema de Match (API + algoritmo)",
       "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 3,
-      "text": "Criar página Perfil Profissional",
+      "text": "Sistema de Emails (8 templates)",
       "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 4,
-      "text": "Adicionar imagens na Home",
+      "text": "Avaliação Mútua implementada",
       "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 5,
-      "text": "Corrigir faixas de preço",
+      "text": "Documentação das APIs",
       "done": true,
       "color": "bg-green-500"
+    },
+    {
+      "id": 6,
+      "text": "Preparar resumo para Gilmar",
+      "done": true,
+      "color": "bg-green-500"
+    },
+    {
+      "id": 7,
+      "text": "Revisão final antes das 9h",
+      "done": false,
+      "color": "bg-amber-500"
     }
   ]
 }

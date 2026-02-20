@@ -1,0 +1,23 @@
+{
+  "sessions": [
+    {
+      "id": "main",
+      "name": "Liliana (Main)",
+      "model": "minimax/M2.5",
+      "tokensIn": 167000,
+      "tokensOut": 578,
+      "updatedAt": "2026-02-19T20:28:00Z"
+    }
+  ],
+  "agents": [
+    {
+      "id": "carol-qa",
+      "name": "Carol (QA)",
+      "model": "minimax/M2.5",
+      "tokensIn": 42000,
+      "tokensOut": 3000,
+      "runs": 2,
+      "updatedAt": "2026-02-19T20:00:00Z"
+    }
+  ]
+}

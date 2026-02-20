@@ -55,7 +55,8 @@ export function ProjectCard({
     <div
       style={style}
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-white/[0.06] bg-slate-900/50 p-5 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.1] hover:bg-slate-900/80",
+        "group relative overflow-hidden rounded-xl border p-5 backdrop-blur-sm transition-all duration-300",
+        "bg-[var(--surface)] border-[var(--border)] hover:border-[var(--border-hover)]",
         className
       )}
     >
@@ -78,7 +79,8 @@ export function ProjectCard({
             <Button
               variant="ghost"
               size="icon"
-              className="h-8 w-8 text-slate-400 hover:text-slate-100"
+              className="h-8 w-8"
+              style={{ color: 'var(--text-muted)' }}
               asChild
             >
               <a href={href} target="_blank" rel="noopener noreferrer">
@@ -89,7 +91,8 @@ export function ProjectCard({
           <Button
             variant="ghost"
             size="icon"
-            className="h-8 w-8 text-slate-400 hover:text-slate-100"
+            className="h-8 w-8"
+            style={{ color: 'var(--text-muted)' }}
           >
             <MoreHorizontal className="h-4 w-4" />
           </Button>
@@ -97,17 +100,25 @@ export function ProjectCard({
       </div>
 
       {/* Project name */}
-      <h3 className="mb-1 text-lg font-semibold text-slate-100 transition-colors group-hover:text-violet-300">
+      <h3 
+        className="mb-1 text-lg font-semibold transition-colors group-hover:text-violet-300"
+        style={{ color: 'var(--text-primary)' }}
+      >
         {name}
       </h3>
 
       {/* Description */}
-      <p className="mb-4 text-sm text-slate-400 line-clamp-2">{description}</p>
+      <p 
+        className="mb-4 text-sm line-clamp-2" 
+        style={{ color: 'var(--text-muted)' }}
+      >
+        {description}
+      </p>
 
       {/* Progress bar */}
       <div className="space-y-2">
         <div className="flex items-center justify-between text-xs">
-          <span className="text-slate-500">Progresso</span>
+          <span style={{ color: 'var(--text-muted)' }}>Progresso</span>
           <span className={cn("font-medium", statusInfo.color)}>{progress}%</span>
         </div>
 
@@ -124,14 +135,15 @@ export function ProjectCard({
         {/* Tasks count */}
         {tasksCompleted !== undefined && tasksTotal !== undefined && (
           <div className="flex items-center justify-between pt-2">
-            <span className="text-xs text-slate-500">
+            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
               {tasksCompleted} de {tasksTotal} tarefas
             </span>
             <span
               className={cn(
                 "text-xs",
-                progress === 100 ? "text-emerald-400" : "text-slate-500"
+                progress === 100 ? "text-emerald-400" : ""
               )}
+              style={{ color: progress === 100 ? 'var(--text-muted)' : 'var(--text-muted)' }}
             >
               {progress === 100 ? "🎉 Concluído" : "🚧 Em andamento"}
             </span>

@@ -1,5 +1,93 @@
 [
   {
+    "id": 34,
+    "tipo": "config",
+    "titulo": "ComfyUI - Modelo RealVisXL V5.0 configurado",
+    "descricao": "Modelo RealVisXL V5.0 instalado (~6.5GB) + VAE SDXL. Workflow para fotos realistas criado em /user/default/workflows/. Guia de prompts e configurações incluído.",
+    "projeto": "OpenClaw",
+    "autor": "Liliana",
+    "tempo": "25 min",
+    "data": "2026-02-19T14:40:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 33,
+    "tipo": "dev",
+    "titulo": "AgenteFlow - WhatsApp Business API estruturada",
+    "descricao": "Webhook receptor, API de envio de mensagens, lib/whatsapp.ts completa, ngrok instalado, guia de configuração criado. Aguardando credenciais Meta para testes.",
+    "projeto": "AgenteFlow",
+    "autor": "Liliana",
+    "tempo": "30 min",
+    "data": "2026-02-19T14:30:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 32,
+    "tipo": "infra",
+    "titulo": "ComfyUI Instalado e Funcionando",
+    "descricao": "Python 3.12 instalado via Homebrew, todas dependências configuradas. ComfyUI rodando em http://localhost:8188 com suporte a MPS (Apple Silicon).",
+    "projeto": "OpenClaw",
+    "autor": "Liliana",
+    "tempo": "15 min",
+    "data": "2026-02-19T14:15:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 31,
+    "tipo": "dev",
+    "titulo": "Trabalho noturno concluído - Resumo",
+    "descricao": "Wizard 6 passos criar-evento + match modal, browser estabilizado (perfil openclaw), agente backup criado, crons desativados. Ver RELATORIO_TRABALHO_18-02-2026.md",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "2h30",
+    "data": "2026-02-18T04:52:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 30,
+    "tipo": "dev",
+    "titulo": "Página Criar Evento atualizada",
+    "descricao": "Adicionadas todas as opções: estilos culinários, tipos de serviço, 10 serviços adicionais (garçom, bebidas, decoração, etc), faixas de preço. Agora compatível com matching de profissionais.",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "20 min",
+    "data": "2026-02-18T04:35:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 26,
+    "tipo": "qa",
+    "titulo": "Testes E2E realizados",
+    "descricao": "14/16 testes passaram (87.5%): Todas as 11 páginas OK, 3/5 APIs OK. Erros: /api/professionals (500), /api/reviews (400)",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "5 min",
+    "data": "2026-02-18T04:13:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 25,
+    "tipo": "dev",
+    "titulo": "Dashboards atualizados - design moderno",
+    "descricao": "Dashboards Cliente e Profissional renovados com stats cards, tabs, layout amber/orange gradient",
+    "projeto": "ChefExperience",
+    "autor": "Liliana",
+    "tempo": "15 min",
+    "data": "2026-02-18T04:05:00Z",
+    "status": "concluido"
+  },
+  {
+    "id": 24,
+    "tipo": "sync",
+    "titulo": "Control Center sincronizado",
+    "descricao": "Cronjob atualizou dados: foco do dia renovado, atividades sincronizadas",
+    "projeto": "Control Center",
+    "autor": "Liliana",
+    "tempo": "1 min",
+    "data": "2026-02-18T03:58:00Z",
+    "status": "concluido"
+  },
+  {
     "id": 23,
     "tipo": "deploy",
     "titulo": "PostgreSQL conectado!",

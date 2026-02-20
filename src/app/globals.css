@@ -35,6 +35,49 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
   --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.15);
   --shadow-glow-accent: 0 0 20px rgba(6, 182, 212, 0.15);
+  
+  /* Status colors */
+  --success: #22c55e;
+  --success-muted: rgba(34, 197, 94, 0.15);
+  --error: #ef4444;
+  --error-muted: rgba(239, 68, 68, 0.15);
+}
+
+/* Light Theme - Warm paper-like (muted/dark for eye comfort) */
+[data-theme="light"] {
+  --background: #cfccc8;
+  --foreground: #1e1e1e;
+  
+  --surface: #d6d4d0;
+  --surface-elevated: #c9c7c3;
+  --surface-overlay: #b8b6b2;
+  
+  --primary: #5a5ca5;
+  --primary-hover: #4a4a85;
+  --primary-muted: rgba(90, 92, 165, 0.15);
+  
+  --accent: #4dd4c3;
+  --accent-hover: #3dc4b4;
+  --accent-muted: rgba(77, 212, 195, 0.15);
+  
+  --text-primary: #1e1e1e;
+  --text-secondary: #454545;
+  --text-muted: #6b6b6b;
+  
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.15);
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 20px rgba(90, 92, 165, 0.08);
+  --shadow-glow-accent: 0 0 20px rgba(77, 212, 195, 0.08);
+  
+  /* Status colors - muted */
+  --success: #6a8f7a;
+  --success-muted: rgba(106, 143, 122, 0.2);
+  --error: #9ca3af;
+  --error-muted: rgba(156, 163, 175, 0.15);
 }
 
 @theme inline {
@@ -65,6 +108,101 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Global light theme fixes - override hardcoded colors */
+[data-theme="light"] {
+  /* Force all slate/gray backgrounds to use theme */
+  .bg-slate-800, .bg-slate-900, .bg-slate-950 { background-color: var(--surface-elevated) !important; }
+  .bg-slate-700, .bg-slate-600 { background-color: var(--surface-overlay) !important; }
+  .bg-slate-500 { background-color: var(--text-muted) !important; }
+  
+  /* Backgrounds with opacity */
+  .bg-slate-900\/50, .bg-slate-800\/50, .bg-slate-900\/80 { background-color: var(--surface) !important; }
+  .bg-slate-800\/50 { background-color: var(--surface) !important; }
+  .bg-white\/\[0\.06\], .bg-white\/\[0\.02\] { background-color: var(--border) !important; }
+  
+  /* Force text colors - darker for readability */
+  .text-slate-500 { color: #555 !important; }
+  .text-slate-400 { color: #666 !important; }
+  .text-slate-300 { color: #444 !important; }
+  .text-slate-200 { color: #333 !important; }
+  .text-slate-100 { color: var(--text-primary) !important; }
+  
+  /* Borders */
+  .border-slate-700, .border-slate-800, .border-white\/\[0\.06\], .border-white\/\[0\.1\], .border-white\/\[0\.02\] { 
+    border-color: var(--border) !important; 
+  }
+  .border-white\/\[0\.06\] { border-color: rgba(0,0,0,0.1) !important; }
+  .border-white\/\[0\.1\] { border-color: rgba(0,0,0,0.15) !important; }
+  
+  /* Hover states */
+  .hover\:bg-slate-700:hover { background-color: var(--surface-overlay) !important; }
+  .hover\:text-slate-300:hover { color: var(--text-primary) !important; }
+  .hover\:text-slate-200:hover { color: var(--text-primary) !important; }
+  .hover\:border-white\/\[0\.2\]:hover { border-color: rgba(0,0,0,0.2) !important; }
+  .hover\:bg-white\/\[0\.02\]:hover { background-color: var(--border-hover) !important; }
+  
+  /* Violet colors - adapt to light */
+  .bg-violet-500\/20 { background-color: var(--primary-muted) !important; }
+  .border-violet-500\/30 { border-color: var(--primary) !important; opacity: 0.5; }
+  .text-violet-300 { color: var(--primary) !important; }
+  .group-hover\:bg-violet-500\/10:hover { background-color: var(--primary-muted) !important; }
+  .group-hover\:text-violet-400 { color: var(--primary-hover) !important; }
+  .hover\:bg-violet-500\/10:hover { background-color: var(--primary-muted) !important; }
+  .bg-violet-500\/20 { background-color: var(--primary-muted) !important; }
+  .text-violet-400 { color: var(--primary-hover) !important; }
+  
+  /* Cyan colors - adapt to light */
+  .text-cyan-400 { color: var(--accent) !important; }
+  
+  /* Ring colors */
+  .focus\:border-violet-500\/50:focus { border-color: var(--primary) !important; }
+  .focus\:ring-violet-500\/50:focus { --tw-ring-color: var(--primary-muted) !important; }
+  
+  /* Input fields */
+  .bg-slate-800\/50 { background-color: var(--surface) !important; }
+  input, textarea { 
+    background-color: var(--surface) !important; 
+    color: var(--text-primary) !important;
+  }
+  
+  /* Line clamp and text overflow */
+  .line-clamp-2 { color: var(--text-secondary) !important; }
+  
+  /* Scrollbar for light */
+  ::-webkit-scrollbar-thumb { background: var(--surface-overlay) !important; }
+  
+  /* Card backgrounds */
+  [class*="rounded-xl"], [class*="rounded-lg"] {
+    background-color: var(--surface) !important;
+  }
+  
+  /* Kanban specific */
+  .rounded-xl, .rounded-lg {
+    background-color: var(--surface) !important;
+    border-color: var(--border) !important;
+  }
+  
+  /* Buttons */
+  button {
+    color: var(--text-primary) !important;
+  }
+  
+  /* Dashed borders */
+  .border-dashed {
+    border-color: var(--border) !important;
+  }
+  
+  /* Document list specific */
+  .text-slate-200 { color: var(--text-primary) !important; }
+  .text-slate-400 { color: #555 !important; }
+  .text-violet-200 { color: var(--primary) !important; }
+  .text-violet-400 { color: var(--primary-hover) !important; }
+  
+  /* Icon colors */
+  .text-slate-400 { color: var(--text-muted) !important; }
 }
 
 /* Custom scrollbar - Dark theme */
@@ -208,5 +346,19 @@ body {
   
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* Light theme - reduce amber/yellow visibility issues */
+[data-theme="light"] {
+  /* Amber colors - make less intense */
+  .text-amber-400 { color: #b45309 !important; }
+  .bg-amber-500\/15 { background-color: rgba(180, 83, 9, 0.1) !important; }
+  .bg-amber-500 { background-color: #b45309 !important; }
+  
+  /* Yellow gradient text */
+  .text-transparent.bg-clip-text.bg-gradient-to-r.from-amber-500.to-orange-600 {
+    color: var(--primary) !important;
+    -webkit-text-fill-color: var(--primary);
   }
 }

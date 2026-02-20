@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "titulo": "Qual versão restaurar do ChefExperience?",
+    "descricao": "Decidir entre c1e0926 (4 passos, SQLite), abbf34e (TypeScript fixes), ou eb89fef (primeiro deploy Vercel)",
+    "status": "pendente",
+    "data": "2026-02-18",
+    "projeto": "ChefExperience"
+  }
+]

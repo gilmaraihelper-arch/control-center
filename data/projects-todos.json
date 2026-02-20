@@ -215,5 +215,76 @@
         "nota": "A cada 15min verifica progresso"
       }
     ]
+  },
+  "agenteflow": {
+    "progresso": 35,
+    "tarefas": [
+      {
+        "id": "af-1",
+        "titulo": "Landing Page Completa",
+        "status": "done",
+        "nota": "React + Vite + Tailwind - já existe no zip recebido"
+      },
+      {
+        "id": "af-2",
+        "titulo": "Formulário Criar Agente",
+        "status": "done",
+        "nota": "Já existe no projeto frontend"
+      },
+      {
+        "id": "af-3",
+        "titulo": "Backend API (Next.js)",
+        "status": "done",
+        "nota": "✅ COMPLETO: Setup projeto, PostgreSQL, Prisma schema, autenticação JWT, CRUD completo"
+      },
+      {
+        "id": "af-4",
+        "titulo": "Integração WhatsApp Business API",
+        "status": "done",
+        "nota": "✅ COMPLETO: Estrutura webhook, envio de mensagens, lib/whatsapp.ts, guia de configuração criado. Aguardando credenciais Meta para testes reais."
+      },
+      {
+        "id": "af-5",
+        "titulo": "Integração OpenAI GPT-4",
+        "status": "todo",
+        "nota": "FASE 3: Prompts por nicho, contexto, fine-tuning"
+      },
+      {
+        "id": "af-6",
+        "titulo": "Integração Google Calendar",
+        "status": "todo",
+        "nota": "FASE 4: Agendamento automático, confirmações"
+      },
+      {
+        "id": "af-7",
+        "titulo": "Dashboard Admin (Área do Cliente)",
+        "status": "todo",
+        "nota": "FASE 5: Estatísticas, chat em tempo real, config"
+      },
+      {
+        "id": "af-8",
+        "titulo": "Sistema de Pagamentos (Stripe)",
+        "status": "todo",
+        "nota": "FASE 6: Assinatura recorrente, planos, faturas"
+      },
+      {
+        "id": "af-9",
+        "titulo": "Testes e Launch",
+        "status": "todo",
+        "nota": "FASE 7: E2E tests, 5 clientes beta, docs"
+      },
+      {
+        "id": "af-10",
+        "titulo": "Plano de Negócio",
+        "status": "done",
+        "nota": "Documento criado em /data/plano-negocio-agenteflow.md"
+      },
+      {
+        "id": "af-11",
+        "titulo": "Plano de Desenvolvimento",
+        "status": "done",
+        "nota": "Documento criado em /data/plano-desenvolvimento-agenteflow.md"
+      }
+    ]
   }
 }

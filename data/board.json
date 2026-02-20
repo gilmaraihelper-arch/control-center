@@ -5,8 +5,8 @@
       "titulo": "A Fazer",
       "tarefas": [
         {
-          "id": "t7",
-          "titulo": "Relatórios de progresso (Control Center)",
+          "id": "cc-8",
+          "titulo": "📊 Relatórios de Progresso (Control Center)",
           "descricao": "Adicionar gráficos e métricas aos dashboards",
           "etiquetas": [
             {
@@ -15,7 +15,127 @@
             }
           ],
           "responsaveis": [
-            "GL"
+            "Alex"
+          ],
+          "comentarios": 0,
+          "anexos": 0
+        },
+        {
+          "id": "af-5",
+          "titulo": "🤖 AgenteFlow - Integração OpenAI GPT-4",
+          "descricao": "Prompts por nicho (médico, advogado, comércio), contexto de conversa, fine-tuning",
+          "etiquetas": [
+            {
+              "nome": "ia",
+              "cor": "bg-rose-500"
+            },
+            {
+              "nome": "alta",
+              "cor": "bg-amber-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
+          ],
+          "comentarios": 0,
+          "anexos": 0
+        },
+        {
+          "id": "af-6",
+          "titulo": "📅 AgenteFlow - Google Calendar API",
+          "descricao": "Agendamento automático, confirmações de horário, sync de eventos",
+          "etiquetas": [
+            {
+              "nome": "integração",
+              "cor": "bg-blue-500"
+            },
+            {
+              "nome": "media",
+              "cor": "bg-violet-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
+          ],
+          "comentarios": 0,
+          "anexos": 0
+        },
+        {
+          "id": "af-7",
+          "titulo": "🖥️ AgenteFlow - Dashboard Admin",
+          "descricao": "Estatísticas, chat em tempo real, configurações do agente",
+          "etiquetas": [
+            {
+              "nome": "frontend",
+              "cor": "bg-cyan-500"
+            },
+            {
+              "nome": "alta",
+              "cor": "bg-amber-500"
+            }
+          ],
+          "responsaveis": [
+            "Alex"
+          ],
+          "comentarios": 0,
+          "anexos": 0
+        },
+        {
+          "id": "af-8",
+          "titulo": "💳 AgenteFlow - Sistema de Pagamentos (Stripe)",
+          "descricao": "Assinatura recorrente, planos, faturas, webhooks",
+          "etiquetas": [
+            {
+              "nome": "backend",
+              "cor": "bg-emerald-500"
+            },
+            {
+              "nome": "financeiro",
+              "cor": "bg-green-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
+          ],
+          "comentarios": 0,
+          "anexos": 0
+        },
+        {
+          "id": "af-9",
+          "titulo": "🧪 AgenteFlow - Testes E2E e Launch",
+          "descricao": "Testes end-to-end, 5 clientes beta, documentação",
+          "etiquetas": [
+            {
+              "nome": "qa",
+              "cor": "bg-purple-500"
+            },
+            {
+              "nome": "launch",
+              "cor": "bg-rose-500"
+            }
+          ],
+          "responsaveis": [
+            "Carol"
+          ],
+          "comentarios": 0,
+          "anexos": 0
+        },
+        {
+          "id": "ce-dash-real",
+          "titulo": "🔗 ChefExperience - Dashboard com Dados Reais",
+          "descricao": "Conectar dashboards (cliente/profissional) ao banco de dados real",
+          "etiquetas": [
+            {
+              "nome": "bug",
+              "cor": "bg-rose-500"
+            },
+            {
+              "nome": "alta",
+              "cor": "bg-amber-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
           ],
           "comentarios": 0,
           "anexos": 0
@@ -37,9 +157,156 @@
       "titulo": "Concluído",
       "tarefas": [
         {
+          "id": "t-af-2",
+          "titulo": "📱 AgenteFlow - WhatsApp Business API",
+          "descricao": "Estrutura completa: webhook receptor, envio de mensagens",
+          "etiquetas": [
+            {
+              "nome": "integração",
+              "cor": "bg-blue-500"
+            },
+            {
+              "nome": "concluído",
+              "cor": "bg-green-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
+          ],
+          "comentarios": 0,
+          "anexos": 2,
+          "data": "19/02"
+        },
+        {
+          "id": "t-af-1",
+          "titulo": "✅ AgenteFlow - Backend API Completo",
+          "descricao": "Next.js API, PostgreSQL, Prisma ORM, JWT Auth",
+          "etiquetas": [
+            {
+              "nome": "backend",
+              "cor": "bg-emerald-500"
+            },
+            {
+              "nome": "concluído",
+              "cor": "bg-green-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
+          ],
+          "comentarios": 0,
+          "anexos": 3,
+          "data": "19/02"
+        },
+        {
+          "id": "ce-faq",
+          "titulo": "📄 ChefExperience - FAQ (13 perguntas)",
+          "descricao": "Página FAQ com busca e filtro",
+          "etiquetas": [
+            {
+              "nome": "frontend",
+              "cor": "bg-cyan-500"
+            },
+            {
+              "nome": "concluído",
+              "cor": "bg-green-500"
+            }
+          ],
+          "responsaveis": [
+            "Liliana"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "19/02"
+        },
+        {
+          "id": "ce-contato",
+          "titulo": "📧 ChefExperience - Página de Contato",
+          "descricao": "Formulário + informações de contato",
+          "etiquetas": [
+            {
+              "nome": "frontend",
+              "cor": "bg-cyan-500"
+            },
+            {
+              "nome": "concluído",
+              "cor": "bg-green-500"
+            }
+          ],
+          "responsaveis": [
+            "Liliana"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "19/02"
+        },
+        {
+          "id": "ce-upload",
+          "titulo": "📸 ChefExperience - Upload de Fotos",
+          "descricao": "API /api/upload para portfólio de profissionais",
+          "etiquetas": [
+            {
+              "nome": "backend",
+              "cor": "bg-emerald-500"
+            },
+            {
+              "nome": "feature",
+              "cor": "bg-rose-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "19/02"
+        },
+        {
+          "id": "ce-oauth",
+          "titulo": "🔐 ChefExperience - Google OAuth",
+          "descricao": "Botão de login com Google nas páginas de cadastro",
+          "etiquetas": [
+            {
+              "nome": "auth",
+              "cor": "bg-blue-500"
+            },
+            {
+              "nome": "concluído",
+              "cor": "bg-green-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "19/02"
+        },
+        {
+          "id": "ce-seguranca",
+          "titulo": "🔒 ChefExperience - Correções de Segurança",
+          "descricao": "Password 8+ chars, rate limiting (5/15min), JWT validation",
+          "etiquetas": [
+            {
+              "nome": "segurança",
+              "cor": "bg-rose-500"
+            },
+            {
+              "nome": "concluído",
+              "cor": "bg-green-500"
+            }
+          ],
+          "responsaveis": [
+            "Bruno"
+          ],
+          "comentarios": 0,
+          "anexos": 0,
+          "data": "19/02"
+        },
+        {
           "id": "t14",
           "titulo": "PostgreSQL ChefExperience",
-          "descricao": "Banco de dados real conectado. Cadastro e login persistindo no PostgreSQL.",
+          "descricao": "Banco de dados real conectado",
           "etiquetas": [
             {
               "nome": "backend",
@@ -51,7 +318,7 @@
             }
           ],
           "responsaveis": [
-            "GL"
+            "Bruno"
           ],
           "comentarios": 0,
           "anexos": 0,
@@ -60,7 +327,7 @@
         {
           "id": "t1",
           "titulo": "Corrigir checkbox LGPD no ChefExperience",
-          "descricao": "Checkbox obrigatório adicionado nos formulários de cadastro",
+          "descricao": "Checkbox obrigatório adicionado nos formulários",
           "etiquetas": [
             {
               "nome": "bug",
@@ -72,28 +339,7 @@
             }
           ],
           "responsaveis": [
-            "GL"
-          ],
-          "comentarios": 0,
-          "anexos": 0,
-          "data": "17/02"
-        },
-        {
-          "id": "t2",
-          "titulo": "Integração Stripe (ChefExperience)",
-          "descricao": "REMOVIDO - Modelo de conexão direta, sem pagamentos na plataforma",
-          "etiquetas": [
-            {
-              "nome": "backend",
-              "cor": "bg-emerald-500"
-            },
-            {
-              "nome": "baixa",
-              "cor": "bg-slate-500"
-            }
-          ],
-          "responsaveis": [
-            "GL"
+            "Bruno"
           ],
           "comentarios": 0,
           "anexos": 0,
@@ -102,7 +348,7 @@
         {
           "id": "t3",
           "titulo": "Redesenhar frontend Control Center",
-          "descricao": "Interface moderna dark theme (slate/violet/cyan) - Concluído",
+          "descricao": "Interface moderna dark theme (slate/violet/cyan)",
           "etiquetas": [
             {
               "nome": "frontend",
@@ -110,7 +356,7 @@
             }
           ],
           "responsaveis": [
-            "GL"
+            "Alex"
           ],
           "comentarios": 0,
           "anexos": 0,
@@ -119,7 +365,7 @@
         {
           "id": "t9",
           "titulo": "Contato Direto (ChefExperience)",
-          "descricao": "Cliente e chef fecham direto, sem pagamentos na plataforma",
+          "descricao": "Cliente e chef fecham direto",
           "etiquetas": [
             {
               "nome": "feature",
@@ -127,7 +373,7 @@
             }
           ],
           "responsaveis": [
-            "GL"
+            "Bruno"
           ],
           "comentarios": 0,
           "anexos": 0,
@@ -136,7 +382,7 @@
         {
           "id": "t10",
           "titulo": "Avaliação Mútua (ChefExperience)",
-          "descricao": "Chef pode avaliar cliente após evento - rating bidirecional",
+          "descricao": "Chef pode avaliar cliente após evento",
           "etiquetas": [
             {
               "nome": "feature",
@@ -144,7 +390,7 @@
             }
           ],
           "responsaveis": [
-            "GL"
+            "Bruno"
           ],
           "comentarios": 0,
           "anexos": 0,
@@ -153,7 +399,7 @@
         {
           "id": "t11",
           "titulo": "LLM Minimax como primary",
-          "descricao": "Trocado de Kimi K2.5 para Minimax M2.5 no gateway",
+          "descricao": "Trocado de Kimi K2.5 para Minimax M2.5",
           "etiquetas": [
             {
               "nome": "config",
@@ -161,7 +407,7 @@
             }
           ],
           "responsaveis": [
-            "GL"
+            "Liliana"
           ],
           "comentarios": 0,
           "anexos": 0,
@@ -170,7 +416,7 @@
         {
           "id": "t12",
           "titulo": "Cronjob Soul + ChefExperience",
-          "descricao": "A cada 15min verifica progresso e sugere próximas ações",
+          "descricao": "A cada 15min verifica progresso",
           "etiquetas": [
             {
               "nome": "automation",
@@ -187,7 +433,7 @@
         {
           "id": "t13",
           "titulo": "Wizard Criar Evento (6 passos)",
-          "descricao": "Novo fluxo wizard com seletor visual, slider de orçamento, resumo",
+          "descricao": "Novo fluxo wizard com seletor visual",
           "etiquetas": [
             {
               "nome": "feature",
@@ -199,24 +445,7 @@
             }
           ],
           "responsaveis": [
-            "Liliana"
-          ],
-          "comentarios": 0,
-          "anexos": 0,
-          "data": "17/02"
-        },
-        {
-          "id": "t14",
-          "titulo": "Páginas Sobre, FAQ, Planos, Contato",
-          "descricao": "4 páginas estáticas criadas para o site",
-          "etiquetas": [
-            {
-              "nome": "frontend",
-              "cor": "bg-cyan-500"
-            }
-          ],
-          "responsaveis": [
-            "Liliana"
+            "Alex"
           ],
           "comentarios": 0,
           "anexos": 0,
@@ -225,7 +454,7 @@
         {
           "id": "t15",
           "titulo": "Teste E2E completo ChefExperience",
-          "descricao": "Fluxo 100%: criar evento → proposta → aceitar → contato → avaliar",
+          "descricao": "Fluxo 100%: criar evento → proposta → aceitar",
           "etiquetas": [
             {
               "nome": "qa",
@@ -233,7 +462,7 @@
             }
           ],
           "responsaveis": [
-            "Liliana"
+            "Carol"
           ],
           "comentarios": 0,
           "anexos": 0,
@@ -266,7 +495,7 @@
             }
           ],
           "responsaveis": [
-            "GL"
+            "Liliana"
           ],
           "comentarios": 0,
           "anexos": 1

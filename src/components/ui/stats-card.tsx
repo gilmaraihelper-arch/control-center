@@ -54,7 +54,8 @@ export function StatsCard({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-white/[0.06] bg-slate-900/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.1] hover:bg-slate-900/80 hover:shadow-lg hover:shadow-violet-500/5",
+        "group relative overflow-hidden rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-lg",
+        "bg-[var(--surface)] border-[var(--border)] hover:border-[var(--border-hover)] hover:shadow-violet-500/5",
         className
       )}
     >
@@ -71,8 +72,8 @@ export function StatsCard({
 
       <div className="relative flex items-start justify-between">
         <div className="space-y-3">
-          <p className="text-sm font-medium text-slate-400">{title}</p>
-          <p className="text-3xl font-bold tracking-tight text-slate-100">
+          <p className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>{title}</p>
+          <p className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
             {value}
           </p>
 
@@ -92,7 +93,7 @@ export function StatsCard({
                 {trend.positive ? "+" : "-"}
                 {Math.abs(trend.value)}%
               </span>
-              <span className="text-xs text-slate-500">vs ontem</span>
+              <span className="text-xs" style={{ color: 'var(--text-muted)' }}>vs ontem</span>
             </div>
           )}
         </div>

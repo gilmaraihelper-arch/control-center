@@ -1,0 +1,103 @@
+{
+  "documents": [
+    {
+      "id": "mission",
+      "title": "Mission Statement",
+      "type": "md",
+      "category": "Content",
+      "content": "An autonomous organization of AI agents that does work for me and produces value 24/7.",
+      "date": "2026-02-19",
+      "modified": "2026-02-19T18:00:00.000Z"
+    },
+    {
+      "id": "soul",
+      "title": "SOUL.md",
+      "type": "md",
+      "category": "Notes",
+      "path": "/Users/gilmaraihelper/.openclaw/workspace-main/SOUL.md",
+      "date": "2026-02-19",
+      "modified": "2026-02-19T18:00:00.000Z"
+    },
+    {
+      "id": "user",
+      "title": "USER.md",
+      "type": "md",
+      "category": "Notes",
+      "path": "/Users/gilmaraihelper/.openclaw/workspace-main/USER.md",
+      "date": "2026-02-19",
+      "modified": "2026-02-19T18:00:00.000Z"
+    },
+    {
+      "id": "agents",
+      "title": "AGENTS.md",
+      "type": "md",
+      "category": "Notes",
+      "path": "/Users/gilmaraihelper/.openclaw/workspace-main/AGENTS.md",
+      "date": "2026-02-19",
+      "modified": "2026-02-19T18:00:00.000Z"
+    },
+    {
+      "id": "tools",
+      "title": "TOOLS.md",
+      "type": "md",
+      "category": "Notes",
+      "path": "/Users/gilmaraihelper/.openclaw/workspace-main/TOOLS.md",
+      "date": "2026-02-19",
+      "modified": "2026-02-19T18:00:00.000Z"
+    },
+    {
+      "id": "weekly-1",
+      "title": "Weekly Review #1",
+      "type": "md",
+      "category": "Journal",
+      "content": "# Weekly Review #1\n\n## Accomplishments\n- Setup Control Center\n- Configured automation tasks\n- Created knowledge base system\n\n## Next Week Goals\n- Expand automation coverage\n- Integrate more services\n- Improve AI agent capabilities",
+      "date": "2026-02-15",
+      "modified": "2026-02-15T10:00:00.000Z"
+    },
+    {
+      "id": "newsletter-1",
+      "title": "AI Newsletter #1",
+      "type": "md",
+      "category": "Newsletters",
+      "content": "# AI Newsletter #1\n\n## Top Stories\n1. New developments in autonomous agents\n2. Productivity automation trends\n3. AI assistance in daily workflows\n\n## Insights\nThe future of work is collaborative - humans and AI agents working together.",
+      "date": "2026-02-10",
+      "modified": "2026-02-10T14:00:00.000Z"
+    },
+    {
+      "id": "config-1",
+      "title": "System Configuration",
+      "type": "config",
+      "category": "Other",
+      "content": "{\n  \"system\": {\n    \"name\": \"Control Center\",\n    \"version\": \"1.0.0\",\n    \"theme\": \"dark\"\n  }\n}",
+      "date": "2026-02-19",
+      "modified": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "qa-chefexperience",
+      "title": "QA Report - ChefExperience",
+      "type": "md",
+      "category": "Notes",
+      "path": "/Users/gilmaraihelper/.openclaw/workspace-main/qa-report-chefexperience.md",
+      "date": "2026-02-19",
+      "modified": "2026-02-19T20:00:00.000Z"
+    },
+    {
+      "id": "chefexperience-api",
+      "title": "ChefExperience - API Documentation",
+      "type": "md",
+      "category": "Technical",
+      "path": "/Users/gilmaraihelper/.openclaw/workspace/chefexperience/docs/API.md",
+      "date": "2026-02-20",
+      "modified": "2026-02-20T00:15:00.000Z"
+    },
+    {
+      "id": "dashboard-fix",
+      "title": "Dashboard Cliente - Auth Check",
+      "type": "md",
+      "category": "Notes",
+      "content": "Adicionado verificação de autenticação no dashboard do cliente. Agora redireciona para login se não estiver autenticado.",
+      "date": "2026-02-19",
+      "modified": "2026-02-19T22:45:00.000Z"
+    }
+  ]
+}
