@@ -11,11 +11,10 @@ interface Note {
 }
 
 const COLORS = [
-  { bg: "bg-amber-500/10", border: "border-amber-500/30", text: "text-amber-400" },
-  { bg: "bg-cyan-500/10", border: "border-cyan-500/30", text: "text-cyan-400" },
-  { bg: "bg-violet-500/10", border: "border-violet-500/30", text: "text-violet-400" },
-  { bg: "bg-emerald-500/10", border: "border-emerald-500/30", text: "text-emerald-400" },
-  { bg: "bg-rose-500/10", border: "border-rose-500/30", text: "text-rose-400" },
+  { border: "var(--lcars-orange)", bg: "rgba(255, 153, 0, 0.1)", text: "var(--lcars-orange)" },
+  { border: "var(--lcars-blue)", bg: "rgba(153, 153, 204, 0.1)", text: "var(--lcars-blue)" },
+  { border: "var(--lcars-green)", bg: "rgba(102, 153, 102, 0.1)", text: "var(--lcars-green)" },
+  { border: "var(--lcars-red)", bg: "rgba(204, 0, 0, 0.1)", text: "var(--lcars-red)" },
 ];
 
 export function QuickNotes() {
@@ -70,38 +69,52 @@ export function QuickNotes() {
 
   return (
     <div 
-      className="rounded-xl p-4"
-      style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+      className="p-5"
+      style={{ 
+        background: 'var(--surface)', 
+        border: '4px solid var(--lcars-orange)',
+        borderRadius: '4px 20px 4px 20px',
+      }}
     >
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm font-medium flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-          <StickyNote className="w-4 h-4 text-amber-400" />
+      {/* LCARS Header */}
+      <div 
+        className="h-6 flex items-center px-3 -mt-5 -mx-5 mb-4"
+        style={{ 
+          background: 'var(--lcars-orange)',
+          borderRadius: '0 16px 0 16px',
+        }}
+      >
+        <span className="text-black text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
+          <StickyNote className="w-3 h-3" />
           Quick Notes
           {notes.length > 0 && (
-            <span className="text-xs ml-1" style={{ color: 'var(--text-muted)' }}>({notes.length})</span>
+            <span className="bg-black/20 px-2 py-0.5 rounded text-[9px]">
+              {notes.length}
+            </span>
           )}
-        </h3>
+        </span>
+        
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-7 h-7 rounded-lg flex items-center justify-center transition-colors"
-          style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}
+          className="ml-auto w-5 h-5 rounded flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors"
         >
-          <Plus className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-45" : ""}`} style={{ color: 'var(--text-muted)' }} />
+          <Plus className={`w-3 h-3 text-black transition-transform ${isExpanded ? "rotate-45" : ""}`} />
         </button>
       </div>
 
       {/* Add Note Input */}
       {isExpanded && (
-        <div className="mb-3 animate-in slide-in-from-top-2 duration-200">
+        <div className="mb-4 animate-fade-in-up">
           <textarea
             value={newNote}
             onChange={(e) => setNewNote(e.target.value)}
             placeholder="Digite sua nota..."
-            className="w-full rounded-lg px-3 py-2 text-sm focus:outline-none resize-none"
+            className="w-full rounded-xl px-4 py-3 text-sm focus:outline-none resize-none"
             style={{ 
-              backgroundColor: 'var(--surface-elevated)', 
-              border: '1px solid var(--border)',
-              color: 'var(--text-primary)'
+              background: 'var(--surface-elevated)', 
+              border: '2px solid var(--lcars-blue)',
+              color: 'var(--lcars-orange)',
+              borderRadius: '12px 4px 12px 4px',
             }}
             rows={2}
             autoFocus
@@ -111,49 +124,68 @@ export function QuickNotes() {
               }
             }}
           />
-          <div className="flex items-center justify-between mt-2">
-            <span className="text-[10px]" style={{ color: 'var(--text-muted)' }}>Cmd+Enter para salvar</span>
+          <div className="flex items-center justify-between mt-3">
+            <span 
+              className="text-[10px] tracking-wider"
+              style={{ color: 'var(--lcars-gray-light)' }}
+            >
+              CMD+ENTER PARA SALVAR
+            </span>
             <button
               onClick={addNote}
               disabled={!newNote.trim()}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ 
-                backgroundColor: 'var(--primary-muted)', 
-                color: 'var(--primary)'
-              }}
+              className="lcars-button flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ borderRadius: '12px 4px 12px 4px' }}
             >
               <Save className="w-3.5 h-3.5" />
-              Salvar
+              SALVAR
             </button>
           </div>
         </div>
       )}
 
       {/* Notes List */}
-      <div className="space-y-2 max-h-[300px] overflow-y-auto">
+      <div className="space-y-3 max-h-[300px] overflow-y-auto pr-1">
         {notes.length === 0 ? (
-          <p className="text-xs text-center py-4" style={{ color: 'var(--text-muted)' }}>
-            Nenhuma nota ainda.
-            <br />
-            Clique no + para adicionar.
-          </p>
+          <div 
+            className="text-center py-6 rounded-xl"
+            style={{ 
+              border: '2px dashed var(--lcars-gray)',
+              background: 'rgba(51, 51, 51, 0.3)',
+            }}
+          >
+            <p className="text-xs tracking-wider" style={{ color: 'var(--lcars-gray-light)' }}>
+              NENHUMA NOTA REGISTRADA
+            </p>
+            <p className="text-[10px] mt-1" style={{ color: 'var(--lcars-gray-light)' }}>
+              Clique no + para adicionar
+            </p>
+          </div>
         ) : (
           notes.map((note) => {
             const colors = getColorClasses(note.color);
             return (
               <div
                 key={note.id}
-                className={`${colors.bg} ${colors.border} border rounded-lg p-3 group relative`}
+                className="group relative p-3 transition-all duration-200 hover:opacity-90"
+                style={{
+                  background: colors.bg,
+                  border: `2px solid ${colors.border}`,
+                  borderRadius: '12px 4px 12px 4px',
+                }}
               >
-                <p className={`text-sm ${colors.text} pr-6 whitespace-pre-wrap`}>
+                <p 
+                  className="text-sm pr-6 whitespace-pre-wrap"
+                  style={{ color: colors.text }}
+                >
                   {note.content}
                 </p>
                 <button
                   onClick={() => deleteNote(note.id)}
-                  className="absolute top-2 right-2 w-5 h-5 rounded flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
+                  className="absolute top-2 right-2 w-5 h-5 rounded flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/20"
+                  style={{ background: 'rgba(0,0,0,0.1)' }}
                 >
-                  <X className="w-3 h-3" style={{ color: 'var(--text-muted)' }} />
+                  <X className="w-3 h-3" style={{ color: colors.border }} />
                 </button>
               </div>
             );

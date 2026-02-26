@@ -4,6 +4,8 @@ import {
   CheckCircle2,
   Clock,
   Cpu,
+  Zap,
+  Activity,
 } from "lucide-react";
 import { StatsCard } from "@/components/ui/stats-card";
 import { ProjectCard } from "@/components/ui/project-card";
@@ -93,6 +95,7 @@ export default async function Dashboard() {
       href: "http://localhost:3000",
       tasksCompleted: projectsData?.chefexperience?.tarefas.filter((t: any) => t.status === "done").length || 21,
       tasksTotal: projectsData?.chefexperience?.tarefas.length || 21,
+      color: "orange" as const,
     },
     {
       name: "Control Center",
@@ -102,6 +105,7 @@ export default async function Dashboard() {
       href: "http://localhost:3000",
       tasksCompleted: projectsData?.controlcenter?.tarefas.filter((t: any) => t.status === "done").length || 7,
       tasksTotal: projectsData?.controlcenter?.tarefas.length || 8,
+      color: "blue" as const,
     },
     {
       name: "OpenClaw",
@@ -111,38 +115,75 @@ export default async function Dashboard() {
       href: "http://localhost:18789",
       tasksCompleted: projectsData?.openclaw?.tarefas.filter((t: any) => t.status === "done").length || 8,
       tasksTotal: projectsData?.openclaw?.tarefas.length || 8,
+      color: "green" as const,
     },
   ];
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {/* Page header */}
+      {/* Page header com estilo LCARS */}
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold" style={{ color: 'var(--text-primary)' }}>Dashboard</h1>
-          <p className="mt-1" style={{ color: 'var(--text-muted)' }}>
-            Visão geral dos seus projetos e tarefas
-          </p>
+        <div className="flex items-center gap-4">
+          <div 
+            className="w-2 h-12 rounded-full"
+            style={{ background: 'var(--lcars-orange)' }}
+          ></div>
+          <div>
+            <h1 
+              className="text-2xl font-bold tracking-[0.15em] uppercase"
+              style={{ color: 'var(--lcars-orange)' }}
+            >
+              Dashboard
+            </h1>
+            <p 
+              className="text-sm tracking-wider"
+              style={{ color: 'var(--lcars-gray-light)' }}
+            >
+              VISÃO GERAL DOS SISTEMAS
+            </p>
+          </div>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            {new Date().toLocaleDateString("pt-BR", {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </span>
+        
+        <div className="flex items-center gap-4">
+          {/* Data estilo LCARS */}
+          <div 
+            className="px-4 py-2 rounded-xl flex items-center gap-3"
+            style={{ 
+              background: 'var(--lcars-blue)',
+              borderRadius: '16px 4px 4px 16px'
+            }}
+          >
+            <span className="text-black font-bold text-sm">
+              {new Date().toLocaleDateString("pt-BR", {
+                weekday: "short",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              }).toUpperCase()}
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* Stats grid - DADOS REAIS */}
+      {/* Decorative bar */}
+      <div className="flex items-center gap-2">
+        <div 
+          className="h-1 rounded-full flex-1"
+          style={{ background: 'var(--lcars-orange)' }}
+        ></div>
+        <div 
+          className="h-1 w-20 rounded-full"
+          style={{ background: 'var(--lcars-blue)' }}
+        ></div>
+      </div>
+
+      {/* Stats grid - LCARS Style */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatsCard
           title="Projetos Ativos"
           value={totalProjects}
           icon={FolderKanban}
-          color="violet"
+          color="orange"
           trend={{ value: onlineProjects === totalProjects ? 100 : Math.round((onlineProjects/totalProjects)*100), positive: true }}
         />
 
@@ -150,7 +191,7 @@ export default async function Dashboard() {
           title="Tarefas Hoje"
           value={totalTasks}
           icon={CheckSquare}
-          color="cyan"
+          color="blue"
           trend={{ value: totalTasks > 0 ? Math.round((completedTasks/totalTasks)*100) : 0, positive: completedTasks >= inProgressTasks }}
         />
 
@@ -158,7 +199,7 @@ export default async function Dashboard() {
           title="Concluídas"
           value={completedTasks}
           icon={CheckCircle2}
-          color="emerald"
+          color="green"
           trend={{ value: completedTasks, positive: true }}
         />
 
@@ -166,72 +207,120 @@ export default async function Dashboard() {
           title="Kanban Total"
           value={kanbanTotal}
           icon={Clock}
-          color="amber"
+          color="red"
           trend={{ value: kanbanConcluido, positive: true }}
         />
       </div>
 
-      {/* Usage Stats */}
+      {/* Usage Stats - LCARS Style */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <div className="bg-slate-900/50 border border-white/[0.06] rounded-xl p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500/20 to-purple-500/20 flex items-center justify-center">
-              <Cpu className="w-5 h-5 text-violet-400" />
+        <div 
+          className="lcars-card lcars-card-blue p-6"
+          style={{ borderRadius: '20px 4px 20px 4px' }}
+        >
+          <div className="lcars-card-header mb-4" style={{ borderRadius: '16px 4px 16px 4px' }}>
+            Tokens Session
+          </div>
+          <div className="flex items-center gap-3">
+            <div 
+              className="w-10 h-10 rounded-xl flex items-center justify-center"
+              style={{ background: 'rgba(153, 153, 204, 0.2)' }}
+            >
+              <Zap className="w-5 h-5" style={{ color: 'var(--lcars-blue)' }} />
             </div>
             <div>
-              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Tokens Session</div>
-              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+              <div 
+                className="text-2xl font-bold"
+                style={{ color: 'var(--lcars-blue)' }}
+              >
                 {usageData?.totals?.sessions ? (usageData.totals.sessions / 1000).toFixed(1) + 'k' : '0'}
               </div>
+              <div className="text-xs text-gray-500 tracking-wider">LILIANA (MAIN)</div>
             </div>
-          </div>
-          <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            Liliana (Main)
           </div>
         </div>
 
-        <div className="bg-slate-900/50 border border-white/[0.06] rounded-xl p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500/20 to-orange-500/20 flex items-center justify-center">
-              <Cpu className="w-5 h-5 text-rose-400" />
+        <div 
+          className="lcars-card lcars-card-red p-6"
+          style={{ borderRadius: '20px 4px 20px 4px' }}
+        >
+          <div className="lcars-card-header mb-4 !bg-[var(--lcars-red)]" style={{ borderRadius: '16px 4px 16px 4px' }}>
+            Tokens Agents
+          </div>
+          <div className="flex items-center gap-3">
+            <div 
+              className="w-10 h-10 rounded-xl flex items-center justify-center"
+              style={{ background: 'rgba(204, 0, 0, 0.2)' }}
+            >
+              <Activity className="w-5 h-5" style={{ color: 'var(--lcars-red)' }} />
             </div>
             <div>
-              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Tokens Agents</div>
-              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+              <div 
+                className="text-2xl font-bold"
+                style={{ color: 'var(--lcars-red)' }}
+              >
                 {usageData?.totals?.agents ? (usageData.totals.agents / 1000).toFixed(1) + 'k' : '0'}
               </div>
+              <div className="text-xs text-gray-500 tracking-wider">CAROL QA + OTHERS</div>
             </div>
-          </div>
-          <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            Carol QA + others
           </div>
         </div>
 
-        <div className="bg-slate-900/50 border border-white/[0.06] rounded-xl p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
-              <Cpu className="w-5 h-5 text-cyan-400" />
+        <div 
+          className="lcars-card lcars-card-green p-6"
+          style={{ borderRadius: '20px 4px 20px 4px' }}
+        >
+          <div className="lcars-card-header mb-4 !bg-[var(--lcars-green)]" style={{ borderRadius: '16px 4px 16px 4px' }}>
+            Total Tokens
+          </div>
+          <div className="flex items-center gap-3">
+            <div 
+              className="w-10 h-10 rounded-xl flex items-center justify-center"
+              style={{ background: 'rgba(102, 153, 102, 0.2)' }}
+            >
+              <Cpu className="w-5 h-5" style={{ color: 'var(--lcars-green)' }} />
             </div>
             <div>
-              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Total Tokens</div>
-              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+              <div 
+                className="text-2xl font-bold"
+                style={{ color: 'var(--lcars-green)' }}
+              >
                 {usageData?.totals?.overall ? (usageData.totals.overall / 1000).toFixed(1) + 'k' : '0'}
               </div>
+              <div className="text-xs text-gray-500 tracking-wider">TODAS AS SESSÕES</div>
             </div>
-          </div>
-          <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            Todas as sessões
           </div>
         </div>
       </div>
 
-      {/* Projects section - DADOS REAIS */}
+      {/* Projects section - LCARS Style */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Projetos</h2>
-          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            {onlineProjects} de {totalProjects} serviços online
-          </span>
+          <div className="flex items-center gap-3">
+            <div 
+              className="w-1 h-8 rounded-full"
+              style={{ background: 'var(--lcars-orange)' }}
+            ></div>
+            <h2 
+              className="text-lg font-bold tracking-[0.15em] uppercase"
+              style={{ color: 'var(--lcars-orange)' }}
+            >
+              Projetos
+            </h2>
+          </div>
+          
+          <div 
+            className="text-sm px-3 py-1 rounded-lg"
+            style={{ 
+              background: 'var(--lcars-blue)',
+              color: 'var(--lcars-black)'
+            }}
+          >
+            <span className="font-bold">{onlineProjects}</span>
+            <span className="opacity-70"> de </span>
+            <span className="font-bold">{totalProjects}</span>
+            <span className="opacity-70 ml-1"> ONLINE</span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -246,16 +335,42 @@ export default async function Dashboard() {
         </div>
       </div>
 
-      {/* Focus section */}
+      {/* Focus section - LCARS Style */}
       {todayData.focus && (
-        <div className="rounded-xl border p-6 bg-gradient-to-r from-violet-500/10 via-transparent to-cyan-500/10" style={{ borderColor: 'var(--border)' }}>
+        <div 
+          className="lcars-card p-6"
+          style={{ borderRadius: '4px 20px 4px 20px' }}
+        >
+          <div className="lcars-card-header mb-4" style={{ borderRadius: '4px 16px 4px 16px' }}>
+            Foco de Hoje
+          </div>
+          
           <div className="flex items-start gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10">
-              <span className="text-lg">🎯</span>
+            <div 
+              className="flex h-12 w-12 items-center justify-center rounded-xl"
+              style={{ background: 'rgba(255, 153, 0, 0.2)' }}
+            >
+              <span className="text-2xl">🎯</span>
             </div>
-            <div>
-              <h3 className="font-semibold" style={{ color: 'var(--text-primary)' }}>Foco de Hoje</h3>
-              <p className="mt-1" style={{ color: 'var(--text-muted)' }}>{todayData.focus}</p>
+            <div className="flex-1">
+              <p 
+                className="text-lg"
+                style={{ color: 'var(--lcars-orange)' }}
+              >
+                {todayData.focus}
+              </p>
+              <div 
+                className="mt-2 h-1 rounded-full overflow-hidden"
+                style={{ background: 'var(--lcars-gray)' }}
+              >
+                <div 
+                  className="h-full rounded-full"
+                  style={{ 
+                    background: 'var(--lcars-orange)',
+                    width: '60%'
+                  }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>

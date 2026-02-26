@@ -10,34 +10,34 @@ interface StatsCardProps {
     value: number;
     positive: boolean;
   };
-  color: "violet" | "cyan" | "emerald" | "amber";
+  color: "orange" | "blue" | "green" | "red";
   className?: string;
 }
 
 const colorStyles = {
-  violet: {
-    iconBg: "bg-violet-500/10",
-    iconColor: "text-violet-400",
-    trendUp: "text-violet-400",
-    trendDown: "text-violet-400/70",
+  orange: {
+    primary: "var(--lcars-orange)",
+    secondary: "var(--lcars-orange-dark)",
+    bg: "rgba(255, 153, 0, 0.15)",
+    border: "var(--lcars-orange)",
   },
-  cyan: {
-    iconBg: "bg-cyan-500/10",
-    iconColor: "text-cyan-400",
-    trendUp: "text-cyan-400",
-    trendDown: "text-cyan-400/70",
+  blue: {
+    primary: "var(--lcars-blue)",
+    secondary: "var(--lcars-blue-dark)",
+    bg: "rgba(153, 153, 204, 0.15)",
+    border: "var(--lcars-blue)",
   },
-  emerald: {
-    iconBg: "bg-emerald-500/10",
-    iconColor: "text-emerald-400",
-    trendUp: "text-emerald-400",
-    trendDown: "text-emerald-400/70",
+  green: {
+    primary: "var(--lcars-green)",
+    secondary: "#558855",
+    bg: "rgba(102, 153, 102, 0.15)",
+    border: "var(--lcars-green)",
   },
-  amber: {
-    iconBg: "bg-amber-500/10",
-    iconColor: "text-amber-400",
-    trendUp: "text-amber-400",
-    trendDown: "text-amber-400/70",
+  red: {
+    primary: "var(--lcars-red)",
+    secondary: "#aa0000",
+    bg: "rgba(204, 0, 0, 0.15)",
+    border: "var(--lcars-red)",
   },
 };
 
@@ -54,59 +54,91 @@ export function StatsCard({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-lg",
-        "bg-[var(--surface)] border-[var(--border)] hover:border-[var(--border-hover)] hover:shadow-violet-500/5",
+        "group relative overflow-hidden transition-all duration-300",
+        "p-5",
         className
       )}
+      style={{
+        background: 'var(--surface)',
+        border: `4px solid ${styles.border}`,
+        borderRadius: '20px 4px 20px 4px',
+      }}
     >
-      {/* Glow effect on hover */}
-      <div
-        className={cn(
-          "absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100",
-          color === "violet" && "bg-gradient-to-br from-violet-500/5 to-transparent",
-          color === "cyan" && "bg-gradient-to-br from-cyan-500/5 to-transparent",
-          color === "emerald" && "bg-gradient-to-br from-emerald-500/5 to-transparent",
-          color === "amber" && "bg-gradient-to-br from-amber-500/5 to-transparent"
-        )}
-      />
+      {/* LCARS header bar */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-6 flex items-center px-3"
+        style={{ 
+          background: styles.border,
+          borderRadius: '16px 0 16px 0',
+        }}
+      >
+        <span className="text-black text-[10px] font-bold tracking-widest uppercase">
+          {title}
+        </span>
+      </div>
 
-      <div className="relative flex items-start justify-between">
-        <div className="space-y-3">
-          <p className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>{title}</p>
-          <p className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
+      <div className="relative flex items-start justify-between mt-6">
+        <div className="space-y-2">
+          <p 
+            className="text-4xl font-bold tracking-tight"
+            style={{ color: styles.primary }}
+          >
             {value}
           </p>
 
           {trend && (
             <div className="flex items-center gap-1.5">
-              {trend.positive ? (
-                <TrendingUp className={cn("h-4 w-4", styles.trendUp)} />
-              ) : (
-                <TrendingDown className={cn("h-4 w-4", styles.trendDown)} />
-              )}
-              <span
-                className={cn(
-                  "text-xs font-medium",
-                  trend.positive ? styles.trendUp : styles.trendDown
-                )}
+              <div 
+                className="flex items-center gap-1 px-2 py-1 rounded-lg"
+                style={{ 
+                  background: trend.positive ? 'rgba(102, 153, 102, 0.2)' : 'rgba(204, 0, 0, 0.2)',
+                }}
               >
-                {trend.positive ? "+" : "-"}
-                {Math.abs(trend.value)}%
+                {trend.positive ? (
+                  <TrendingUp 
+                    className="h-3 w-3" 
+                    style={{ color: 'var(--lcars-green)' }}
+                  />
+                ) : (
+                  <TrendingDown 
+                    className="h-3 w-3" 
+                    style={{ color: 'var(--lcars-red)' }}
+                  />
+                )}
+                <span
+                  className="text-xs font-bold"
+                  style={{ 
+                    color: trend.positive ? 'var(--lcars-green)' : 'var(--lcars-red)'
+                  }}
+                >
+                  {trend.positive ? "+" : "-"}
+                  {Math.abs(trend.value)}%
+                </span>
+              </div>
+              
+              <span className="text-[10px] tracking-wider uppercase" style={{ color: 'var(--lcars-gray-light)' }}>
+                vs ontem
               </span>
-              <span className="text-xs" style={{ color: 'var(--text-muted)' }}>vs ontem</span>
             </div>
           )}
         </div>
 
         <div
-          className={cn(
-            "flex h-12 w-12 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110",
-            styles.iconBg
-          )}
+          className="flex h-12 w-12 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
+          style={{ background: styles.bg }}
         >
-          <Icon className={cn("h-5 w-5", styles.iconColor)} />
+          <Icon 
+            className="h-6 w-6" 
+            style={{ color: styles.primary }}
+          />
         </div>
       </div>
+      
+      {/* Decorative corner */}
+      <div 
+        className="absolute bottom-2 right-2 w-6 h-6 rounded-full opacity-30"
+        style={{ background: styles.border }}
+      ></div>
     </div>
   );
 }

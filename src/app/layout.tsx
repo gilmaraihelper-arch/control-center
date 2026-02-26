@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Settings } from "lucide-react";
 import { SidebarNav } from "@/components/sidebar-nav";
-import { ThemeToggle } from "@/components/theme-toggle";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Control Center",
-  description: "Centro de Controle local do Gilmar",
+  title: "CONTROL CENTER",
+  description: "Centro de Controle LCARS - Starfleet Interface",
 };
 
 export default function RootLayout({
@@ -28,88 +26,102 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-        style={{ backgroundColor: 'var(--background)', color: 'var(--text-primary)' }}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-black`}
       >
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var theme = localStorage.getItem('theme');
-                if (theme) {
-                  document.documentElement.setAttribute('data-theme', theme);
-                }
-              })();
-            `,
-          }}
-        />
         <div className="flex min-h-screen">
-          {/* Sidebar */}
-          <aside 
-            className="w-64 border-r flex flex-col fixed left-0 top-0 bottom-0 z-40"
-            style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}
-          >
-            {/* Logo */}
-            <div 
-              className="h-16 flex items-center px-6 border-b"
-              style={{ borderColor: 'var(--border)' }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-violet-500/20">
-                  <span className="text-white font-bold text-sm">CC</span>
-                </div>
-                <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>Control Center</span>
-              </div>
-            </div>
-
-            {/* Navigation - Dynamic */}
-            <SidebarNav />
-
-            {/* Bottom section */}
-            <div className="p-3 border-t" style={{ borderColor: 'var(--border)' }}>
-              <a
-                href="/settings"
-                className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group relative overflow-hidden"
-                style={{ color: 'var(--text-muted)' }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-violet-500/0 via-violet-500/5 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div 
-                  className="flex items-center justify-center w-8 h-8 rounded-lg group-hover:bg-violet-500/10 transition-colors duration-200"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
-                >
-                  <Settings className="w-4 h-4 group-hover:text-violet-400 transition-colors duration-200" style={{ color: 'var(--text-muted)' }} />
-                </div>
-                <span className="text-sm font-medium relative">Configurações</span>
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-violet-500 group-hover:h-6 transition-all duration-200 rounded-r-full" />
-              </a>
-            </div>
-          </aside>
-
-          {/* Main content area */}
-          <div className="flex-1 flex flex-col ml-64">
-            {/* Header */}
+          {/* Main content area - Left side */}
+          <div className="flex-1 flex flex-col mr-72">
+            {/* LCARS Header */}
             <header 
-              className="h-16 backdrop-blur-md border-b flex items-center justify-between px-8 sticky top-0 z-30"
-              style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)' }}
+              className="h-20 flex items-center px-8 sticky top-0 z-30 lcars-header"
+              style={{ backgroundColor: 'var(--lcars-black)' }}
             >
-              <div className="flex items-center gap-4">
-                <h2 className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>Bem-vindo de volta</h2>
+              {/* Title with LCARS styling */}
+              <div className="flex items-center gap-6">
+                <div className="flex flex-col">
+                  <h1 className="text-3xl font-bold tracking-[0.2em] uppercase" 
+                      style={{ color: 'var(--lcars-orange)' }}>
+                    CONTROL
+                  </h1>
+                  <div className="flex items-center gap-2">
+                    <div className="w-12 h-1 rounded-full" style={{ background: 'var(--lcars-blue)' }}></div>
+                    <span className="text-xs font-bold tracking-[0.3em] uppercase" 
+                          style={{ color: 'var(--lcars-blue)' }}>
+                      CENTER
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Decorative bar */}
+                <div className="h-10 w-1 rounded-full ml-4" style={{ background: 'var(--lcars-orange)' }}></div>
+                
+                {/* Subtitle */}
+                <div className="flex flex-col">
+                  <span className="text-xs tracking-[0.2em] uppercase" style={{ color: 'var(--lcars-gray-light)' }}>
+                    Starfleet Command
+                  </span>
+                  <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--lcars-gray-light)' }}>
+                    System Interface v4.2
+                  </span>
+                </div>
               </div>
-              
-              <div className="flex items-center gap-4">
-                <ThemeToggle />
-                <span className="text-sm" style={{ color: 'var(--text-muted)' }}>Gilmar</span>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500/20 to-cyan-500/20 border border-violet-500/30 flex items-center justify-center">
-                  <span className="text-xs font-bold text-violet-300">G</span>
+
+              {/* Right side of header */}
+              <div className="ml-auto flex items-center gap-4">
+                {/* Status indicators */}
+                <div className="flex items-center gap-3">
+                  <div className="lcars-status lcars-status-online">
+                    <span className="lcars-status-dot"></span>
+                    ONLINE
+                  </div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 rounded-full" style={{ background: 'var(--lcars-orange)' }}></div>
+                  <div className="w-3 h-3 rounded-full" style={{ background: 'var(--lcars-blue)' }}></div>
+                  <div className="w-3 h-3 rounded-full" style={{ background: 'var(--lcars-red)' }}></div>
                 </div>
               </div>
             </header>
 
+            {/* Decorative horizontal bar */}
+            <div className="h-1 mx-8 rounded-full" style={{ background: 'var(--lcars-orange)' }}></div>
+
             {/* Page content */}
-            <main className="flex-1 p-8">
+            <main className="flex-1 p-8 lcars-grid">
               {children}
             </main>
           </div>
+
+          {/* LCARS Sidebar - Right side */}
+          <aside 
+            className="w-72 flex flex-col fixed right-0 top-0 bottom-0 z-40 lcars-sidebar"
+            style={{ backgroundColor: 'var(--lcars-black)' }}
+          >
+            {/* Top decorative section */}
+            <div className="lcars-sidebar-top flex items-end justify-end px-4 pb-2">
+              <span className="text-black font-bold text-xs tracking-widest">LCARS-1847</span>
+            </div>
+            
+            {/* Decorative gap */}
+            <div className="h-4"></div>
+            
+            {/* Navigation */}
+            <SidebarNav />
+            
+            {/* Decorative gap */}
+            <div className="h-4"></div>
+            
+            {/* Bottom decorative section */}
+            <div className="lcars-sidebar-bottom mt-auto flex items-start justify-between px-4 pt-2">
+              <div className="flex flex-col gap-1">
+                <div className="w-8 h-2 rounded-full bg-black/30"></div>
+                <div className="w-6 h-2 rounded-full bg-black/30"></div>
+              </div>
+              <span className="text-black font-bold text-xs tracking-widest">NCC-1701-D</span>
+            </div>
+          </aside>
         </div>
       </body>
     </html>

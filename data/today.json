@@ -1,42 +1,42 @@
 {
   "focus": "Surpresa das 9h - ChefExperience completo",
-  "date": "2026-02-20",
+  "date": "2026-02-26",
   "mission": "An autonomous organization of AI agents that does work for me and produces value 24/7.",
   "tasks": [
     {
       "id": 1,
       "text": "Deploy ChefExperience com novas features",
-      "done": true,
+      "done": false,
       "color": "bg-green-500"
     },
     {
       "id": 2,
       "text": "Sistema de Match (API + algoritmo)",
-      "done": true,
+      "done": false,
       "color": "bg-green-500"
     },
     {
       "id": 3,
       "text": "Sistema de Emails (8 templates)",
-      "done": true,
+      "done": false,
       "color": "bg-green-500"
     },
     {
       "id": 4,
       "text": "Avaliação Mútua implementada",
-      "done": true,
+      "done": false,
       "color": "bg-green-500"
     },
     {
       "id": 5,
       "text": "Documentação das APIs",
-      "done": true,
+      "done": false,
       "color": "bg-green-500"
     },
     {
       "id": 6,
       "text": "Preparar resumo para Gilmar",
-      "done": true,
+      "done": false,
       "color": "bg-green-500"
     },
     {
