@@ -217,7 +217,7 @@
     ]
   },
   "agenteflow": {
-    "progresso": 35,
+    "progresso": 40,
     "tarefas": [
       {
         "id": "af-1",
@@ -284,6 +284,110 @@
         "titulo": "Plano de Desenvolvimento",
         "status": "done",
         "nota": "Documento criado em /data/plano-desenvolvimento-agenteflow.md"
+      }
+    ]
+  },
+  "socialchef": {
+    "progresso": 97,
+    "tarefas": [
+      {
+        "id": "sc-1",
+        "titulo": "MVP Completo",
+        "status": "done"
+      },
+      {
+        "id": "sc-2",
+        "titulo": "Design completo",
+        "status": "done"
+      },
+      {
+        "id": "sc-3",
+        "titulo": "Dashboard com métricas",
+        "status": "done"
+      },
+      {
+        "id": "sc-4",
+        "titulo": "Integrar APIs redes sociais",
+        "status": "todo",
+        "nota": "Meta, Twitter"
+      },
+      {
+        "id": "sc-5",
+        "titulo": "Configurar Stripe",
+        "status": "todo"
+      }
+    ]
+  },
+  "trampoja": {
+    "progresso": 30,
+    "tarefas": [
+      {
+        "id": "tj-1",
+        "titulo": "Setup Next.js + Supabase",
+        "status": "done",
+        "nota": "Repositório criado no GitHub"
+      },
+      {
+        "id": "tj-2",
+        "titulo": "Estrutura MVP",
+        "status": "done",
+        "nota": "Protótipo funcional"
+      },
+      {
+        "id": "tj-3",
+        "titulo": "Testar localmente",
+        "status": "todo",
+        "nota": "Clonar repositório e rodar local"
+      },
+      {
+        "id": "tj-4",
+        "titulo": "Definir roadmap",
+        "status": "todo"
+      }
+    ]
+  },
+  "newsflow": {
+    "progresso": 50,
+    "tarefas": [
+      {
+        "id": "nf-1",
+        "titulo": "Extrair projeto",
+        "status": "done"
+      },
+      {
+        "id": "nf-2",
+        "titulo": "Instalar dependências",
+        "status": "done"
+      },
+      {
+        "id": "nf-3",
+        "titulo": "Frontend + Backend conectados",
+        "status": "done"
+      },
+      {
+        "id": "nf-4",
+        "titulo": "Termos e Privacidade",
+        "status": "done"
+      },
+      {
+        "id": "nf-5",
+        "titulo": "Deploy Vercel (frontend)",
+        "status": "todo"
+      },
+      {
+        "id": "nf-6",
+        "titulo": "Deploy Railway/Render (backend)",
+        "status": "todo"
+      },
+      {
+        "id": "nf-7",
+        "titulo": "Domínio customizado",
+        "status": "todo"
+      },
+      {
+        "id": "nf-8",
+        "titulo": "Configurar cronjob",
+        "status": "todo"
       }
     ]
   }
