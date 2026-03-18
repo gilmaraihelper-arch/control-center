@@ -390,5 +390,117 @@
         "status": "todo"
       }
     ]
+  },
+  "talentdash": {
+    "progresso": 100,
+    "tarefas": [
+      {
+        "id": "td-1",
+        "titulo": "Setup Next.js + Tailwind + Zustand",
+        "status": "done"
+      },
+      {
+        "id": "td-2",
+        "titulo": "Cadastro/Login",
+        "status": "done"
+      },
+      {
+        "id": "td-3",
+        "titulo": "Mapeamentos",
+        "status": "done"
+      },
+      {
+        "id": "td-4",
+        "titulo": "Candidatos",
+        "status": "done"
+      },
+      {
+        "id": "td-5",
+        "titulo": "Dashboard",
+        "status": "done"
+      },
+      {
+        "id": "td-6",
+        "titulo": "Dialogs de confirmação",
+        "status": "done"
+      },
+      {
+        "id": "td-7",
+        "titulo": "API endpoint POST /jobs/{jobId}/candidates",
+        "status": "done",
+        "nota": "Corrigido: Candidatos não persistiam"
+      },
+      {
+        "id": "td-8",
+        "titulo": "Memory leak cleanup",
+        "status": "done",
+        "nota": "Cleanup + flag isMounted no useStore"
+      },
+      {
+        "id": "td-9",
+        "titulo": "XSS vulnerability fix",
+        "status": "done",
+        "nota": "Validação isValidUrl()"
+      },
+      {
+        "id": "td-10",
+        "titulo": "Secure IDs",
+        "status": "done",
+        "nota": "crypto.randomUUID()"
+      },
+      {
+        "id": "td-11",
+        "titulo": "ConfirmDialog component",
+        "status": "done",
+        "nota": "Confirm nativo substituído"
+      },
+      {
+        "id": "td-12",
+        "titulo": "Lançamento",
+        "status": "done",
+        "nota": "Lançado em 2026-03-16"
+      }
+    ]
+  },
+  "lilianavoice": {
+    "progresso": 100,
+    "tarefas": [
+      {
+        "id": "lv-1",
+        "titulo": "Setup Node.js + WebSocket",
+        "status": "done"
+      },
+      {
+        "id": "lv-2",
+        "titulo": "Integração ElevenLabs Conversational AI",
+        "status": "done"
+      },
+      {
+        "id": "lv-3",
+        "titulo": "Interface web",
+        "status": "done"
+      },
+      {
+        "id": "lv-4",
+        "titulo": "Streaming em tempo real",
+        "status": "done"
+      },
+      {
+        "id": "lv-5",
+        "titulo": "Turn-based recording",
+        "status": "done"
+      },
+      {
+        "id": "lv-6",
+        "titulo": "Voz brasileira (Fabi)",
+        "status": "done"
+      },
+      {
+        "id": "lv-7",
+        "titulo": "Deploy localhost:3003",
+        "status": "done",
+        "nota": "Requer restart manual se processo sair"
+      }
+    ]
   }
 }
