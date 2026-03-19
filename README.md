@@ -66,14 +66,23 @@ npm run dev
 git add . && git commit -m "update" && git push
 ```
 
-## 📋 Tarefas Pendentes
+## 📋 Tarefas Concluídas (2026-03-14)
 
+- [x] Tema LCARS implementado
+- [x] Configuração Supabase para deploy Vercel
 - [x] Adicionar TrampoJá ao board de projetos
 - [x] Adicionar AgenteFlow ao board de projetos
+- [x] Adicionar TalentDash ao board de projetos
+- [x] Adicionar Liliana Voice ao board de projetos
 - [x] Sincronizar status dos projetos
+
+---
+
+## 📋 Tarefas Pendentes
+
 - [ ] Revisar tarefas pendentes
 
 ---
 
-*Última atualização: 2026-03-07*
+*Última atualização: 2026-03-19*
 *QA Engineer: Carol*
