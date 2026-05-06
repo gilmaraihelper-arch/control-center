@@ -75,14 +75,33 @@ git add . && git commit -m "update" && git push
 - [x] Adicionar TalentDash ao board de projetos
 - [x] Adicionar Liliana Voice ao board de projetos
 - [x] Sincronizar status dos projetos
+- [x] Dashboard principal com visão geral
+- [x] Quadro Trello funcional
+- [x] Calendário integrado
+- [x] Repositório de documentos
 
 ---
 
 ## 📋 Tarefas Pendentes
 
 - [ ] Revisar tarefas pendentes
+- [ ] Adicionar mais métricas ao dashboard
+- [ ] Integrar Google Calendar (em progresso)
 
 ---
 
-*Última atualização: 2026-03-19*
-*QA Engineer: Carol*
+## 🆕 Liliana Voice Server (2026-03-15)
+- **URL:** http://localhost:3003
+- **Stack:** Node.js + WebSocket, ElevenLabs Conversational AI
+- **Status:** ✅ Implementado
+
+## 🔗 Links Úteis
+
+- **Vercel:** https://control-center-app.vercel.app
+- **Supabase:** https://supabase.com/dashboard
+- **OpenClaw Gateway:** http://localhost:18789
+
+---
+
+*Última atualização: 2026-05-06*
+*QA Engineer: Carol (Revisão docs)*
