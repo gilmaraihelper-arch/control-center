@@ -87,11 +87,11 @@ git add . && git commit -m "update" && git push
 - [ ] Revisar tarefas pendentes
 - [ ] Adicionar mais métricas ao dashboard
 - [ ] Integrar Google Calendar (em progresso)
-- [ ] Adicionar projetos BM Vagas ao board
+- [x] Adicionar projetos BM Vagas ao board
 
 ---
 
-## 🆕 Projetos no Board (2026-05-18)
+## 🆕 Projetos no Board (2026-05-29)
 
 ### Projetos Ativos
 | Projeto | Progresso | Status |
@@ -102,10 +102,10 @@ git add . && git commit -m "update" && git push
 | TalentDash | 100% | ✅ Lançado |
 | BM Vagas J&J | 80% | 🚀 Em progresso |
 | BM Vagas Straumann | 80% | 🚀 Em progresso |
+| Conecta RH | 60% | 🚀 Em progresso |
 | SocialChef | 97% | ✅ MVP Completo |
 | NewsFlow | 50% | 🚀 Em progresso |
 | TrampoJá | 30% | 🆕 Início |
-| Conecta RH | 60% | 🚀 Em progresso |
 
 ---
 
@@ -122,5 +122,5 @@ git add . && git commit -m "update" && git push
 
 ---
 
-*Última atualização: 2026-05-25*
-*QA Engineer: Carol (Revisão docs - 25/05/2026)*
+*Última atualização: 2026-06-03*
+*QA Engineer: Carol (Revisão docs - 03/06/2026)*
