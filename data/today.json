@@ -1,49 +1,43 @@
 {
-  "focus": "Surpresa das 9h - ChefExperience completo",
-  "date": "2026-02-26",
+  "focus": "Revisão de documentação dos projetos - QA Carol",
+  "date": "2026-06-02",
   "mission": "An autonomous organization of AI agents that does work for me and produces value 24/7.",
   "tasks": [
     {
       "id": 1,
-      "text": "Deploy ChefExperience com novas features",
-      "done": false,
+      "text": "Revisar README.md do ChefExperience",
+      "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 2,
-      "text": "Sistema de Match (API + algoritmo)",
-      "done": false,
+      "text": "Revisar documentação do Control Center",
+      "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 3,
-      "text": "Sistema de Emails (8 templates)",
-      "done": false,
+      "text": "Revisar README.md do AgenteFlow",
+      "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 4,
-      "text": "Avaliação Mútua implementada",
-      "done": false,
+      "text": "Revisar MEMORY.md do workspace",
+      "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 5,
-      "text": "Documentação das APIs",
-      "done": false,
+      "text": "Atualizar today.json com data atual",
+      "done": true,
       "color": "bg-green-500"
     },
     {
       "id": 6,
-      "text": "Preparar resumo para Gilmar",
-      "done": false,
+      "text": "Atualizar log de event reminders no ChefExperience README",
+      "done": true,
       "color": "bg-green-500"
-    },
-    {
-      "id": 7,
-      "text": "Revisão final antes das 9h",
-      "done": false,
-      "color": "bg-amber-500"
     }
   ]
 }
